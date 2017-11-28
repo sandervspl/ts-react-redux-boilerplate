@@ -1,9 +1,9 @@
-# React Redux Typescript Boilerplate
+# React Redux Typescript Styled-Components Boilerplate
 
 ## Getting Started
-`$ git clone https://github.com/sandervspl/react-redux-typescript-boilerplate`
+`$ git clone https://github.com/sandervspl/react-redux-typescript-styled-components-boilerplate`
 
-`$ cd react-redux-typescript-boilerplate && npm install`
+`$ cd react-redux-typescript-styled-components-boilerplate && npm install`
 
 `$ npm start` (run in development mode)
 
@@ -20,7 +20,7 @@
 * [Webpack Hot Middleware](https://github.com/glenjamin/webpack-hot-middleware)
 * [Redux Dev Tools](https://github.com/gaearon/redux-devtools) for next generation DX (developer experience).
 * [TSLint](https://palantir.github.io/tslint/) to maintain a consistent code style
-* [PostCSS](https://github.com/postcss/postcss-loader) with [CSSnext](http://cssnext.io/) for the future of CSS
+* [Styled-Components](https://github.com/styled-components/styled-components/) with [styled-components](https://www.styled-components.com/) for CSS-in-JS
 * [TypeScript](https://github.com/Microsoft/TypeScript) to use a typed superset of JavaScript for more consistent and better code
 * Refer to `package.json` for more details
 
@@ -62,27 +62,10 @@ To use de Redux DevTools install the [Redux DevTools extension](https://chrome.g
 
 ## Styling
 ### Local styles
-This project uses local styles using the [css-loader](https://github.com/webpack-contrib/css-loader) with [react-css-modules](https://github.com/gajus/react-css-modules). The way it works is that you import your CSS stylesheet at the top of your React component.
-
-`import * as styles from './App.css';`
-
-With `styleName` you can define classes that match the ones you've imported from your CSS stylesheet.
-
-`<div styleName="your-class"> ... </div>`
-
-The last thing you have to do is export your component wrapped in cssModules.
-
-`export default cssModules(App, styles);`
+This project uses CSS-in-JS styling with [Styled-Components](https://github.com/styled-components/styled-components/).
 
 ### Global styles
 You can find the global styles in the `styles` folder. In this folder you can also specify all the variables.  
-
-### CSSnext
-The boilerplate uses [CSSnext](http://cssnext.io/), so you can use the newest CSS syntax. Some [features](http://cssnext.io/features/):
-* Variables
-* Calculations
-* Nesting
-* Autoprefixer
 
 ## Roadmap
 - TBD
