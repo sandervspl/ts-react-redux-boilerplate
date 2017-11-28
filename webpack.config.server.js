@@ -23,22 +23,6 @@ module.exports = {
                 loader: 'babel-loader',
             },
             {
-                test: /\.css$/,
-                loader: `style-loader!typings-for-css-modules-loader?${[
-                    'modules',
-                    'namedExport',
-                    'camelCase',
-                    'localIdentName=[name]__[local]___[hash:base64:5]',
-                    'importLoaders=1!postcss-loader',
-                ].join('&')}`,
-                exclude: /node_modules/,
-            },
-            {
-                test: /\.css$/,
-                loader: 'css-loader',
-                include: /node_modules/,
-            },
-            {
                 test: /\.svg$/,
                 loader: 'babel-loader!svg-react-loader',
             },

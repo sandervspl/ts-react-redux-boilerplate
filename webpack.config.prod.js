@@ -29,28 +29,6 @@ module.exports = {
                 loader: 'awesome-typescript-loader',
             },
             {
-                test: /\.css$/,
-                include: path.resolve(__dirname, 'src'),
-                loader: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: `typings-for-css-modules-loader?${[
-                        'modules',
-                        'namedExport',
-                        'camelCase',
-                        'localIdentName=[name]__[local]___[hash:base64:5]',
-                        'importLoaders=1!postcss-loader',
-                    ].join('&')}`,
-                }),
-            },
-            {
-                test: /\.css$/,
-                exclude: path.resolve(__dirname, 'src'),
-                loader: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: 'css-loader',
-                }),
-            },
-            {
                 test: /\.svg$/,
                 loader: 'babel-loader!svg-react-loader',
             },

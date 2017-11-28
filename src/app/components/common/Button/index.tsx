@@ -1,8 +1,8 @@
 import * as React from 'react';
-import * as cssModules from 'react-css-modules';
+import styled from 'styled-components';
 
+import { color, font } from 'styles/variables';
 import { propChildrenAll } from 'services/customTypes';
-import * as styles from './styles.css';
 
 export interface IButtonProps {
     children?: propChildrenAll; // '?' indicates optional
@@ -10,6 +10,18 @@ export interface IButtonProps {
     onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
     type?: string;
 }
+
+const Element = styled.button`
+    background: ${color.primary};
+    padding: 10px 20px;
+    border: none;
+    color: ${color.white};
+    font-size: 16px;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: ${font.futura};
+`;
 
 /*
  * Define default values for our props here.
@@ -30,16 +42,15 @@ const defaultProps: IButtonProps = {
  * The props that are passed are now linked to the interface.
  */
 const Button: React.StatelessComponent<IButtonProps> = (props: IButtonProps) => (
-    <button
-        styleName="button"
+    <Element
         disabled={props.disabled}
         type={props.type}
         onClick={props.onClick}
     >
         {props.children}
-    </button>
+    </Element>
 );
 
 Button.defaultProps = defaultProps;
 
-export default cssModules(styles)(Button);
+export default Button;

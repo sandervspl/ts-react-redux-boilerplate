@@ -1,16 +1,25 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { compose } from 'redux';
-import * as cssModules from 'react-css-modules';
+import styled from 'styled-components';
 
 import { IReduxStore } from 'app/ducks';
+import { dispatcher } from 'ducks/interfaces';
 import { install, ITestState } from 'ducks/test';
 
 import LogoIcon from 'vectors/logo.svg';
 import Button from 'common/Button';
 import TestPassed from './components/TestPassed';
 
-import * as styles from './styles.css';
+const Section = styled.section`
+    text-align: center;
+`;
+
+// Extend LogoIcon component with styling
+const LogoIconWrapper = styled(LogoIcon)`
+    width: 200px;
+    display: block;
+    margin: 0 auto;
+`;
 
 /*
  * __NOTE: extending redux state interface to props
@@ -19,12 +28,12 @@ import * as styles from './styles.css';
  * Now this props interface will also contain "passed", "loading", and "error".
  */
 export interface IHomeProps extends ITestState {
-    install: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    install: dispatcher;
 }
 
 const Test: React.StatelessComponent<IHomeProps> = (props: IHomeProps) => (
-    <section styleName="test">
-        <LogoIcon styleName="logo" />
+    <Section>
+        <LogoIconWrapper />
         {props.test.passed ? (
             <TestPassed />
         ) : (
@@ -32,16 +41,11 @@ const Test: React.StatelessComponent<IHomeProps> = (props: IHomeProps) => (
                 {props.test.loading ? 'Installing ...' : 'Test installation'}
             </Button>
         )}
-    </section>
+    </Section>
 );
 
-const mapStateToProps = (store: IReduxStore) => {
-    return {
-        test: store.test,
-    };
-};
+const mapStateToProps = (store: IReduxStore) => ({
+    test: store.test,
+});
 
-export default compose(
-    connect(mapStateToProps, { install }),
-    cssModules(styles),
-)(Test);
+export default connect(mapStateToProps, { install })(Test);

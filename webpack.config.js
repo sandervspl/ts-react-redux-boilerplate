@@ -28,17 +28,6 @@ module.exports = {
                 loader: 'awesome-typescript-loader',
             },
             {
-                test: /\.css$/,
-                exclude: /node_modules/,
-                loader: `style-loader!typings-for-css-modules-loader?${[
-                    'modules',
-                    'namedExport',
-                    'camelCase',
-                    'localIdentName=[name]__[local]___[hash:base64:5]',
-                    'importLoaders=1!postcss-loader',
-                ].join('&')}`,
-            },
-            {
                 test: /\.svg$/,
                 loader: 'babel-loader!svg-react-loader',
             },
