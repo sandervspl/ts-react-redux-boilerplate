@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "removeComments": true,
+    "allowUnreachableCode": true,
+    "pretty": true,
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react",
+    "baseUrl": "src",
+    "paths": {
+      "app/*": ["app/*"],
+      "common/*": ["app/components/common/*"],
+      "components/*": ["app/components/*"],
+      "config/*": ["config/*"],
+      "ducks/*": ["app/ducks/*"],
+      "fonts/*": ["app/static/fonts/*"],
+      "images/*": ["app/static/images/*"],
+      "modules/*": ["app/components/modules/*"],
+      "server/*": ["server/*"],
+      "services/*": ["app/services/*"],
+      "styles/*": ["app/styles/*"],
+      "vectors/*": ["app/static/vectors/*"]
+    },
+    "include": [
+      "./src/**/*"
+    ]
+  }
+}
