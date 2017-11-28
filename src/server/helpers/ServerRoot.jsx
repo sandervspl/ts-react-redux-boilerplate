@@ -1,5 +1,4 @@
 import React from 'react';
-import PT from 'prop-types';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router';
 import store from 'app/store';
@@ -12,9 +11,5 @@ const ServerRoot = ({ location }) => (
         </StaticRouter>
     </Provider>
 );
-
-ServerRoot.propTypes = {
-    location: PT.string,
-};
 
 export default ServerRoot;
