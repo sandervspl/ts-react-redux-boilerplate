@@ -1,14 +1,13 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled from 'services/styled-components';
 
-import { color, font } from 'styles/variables';
 import * as confetti from 'images/confetti.png';
 
 const Message = styled.div`
     font-size: 18px;
     margin-top: 0;
-    color: ${color.text};
-    font-family: ${font.futura};
+    color: ${props => props.theme.color.text};
+    font-family: ${props => props.theme.font.futura};
     line-height: 30px;
 `;
 

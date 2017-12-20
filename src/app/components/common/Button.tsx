@@ -1,7 +1,6 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled from 'services/styled-components';
 
-import { color, font } from 'styles/variables';
 import { propChildrenAll } from 'services/customTypes';
 
 export interface IButtonProps {
@@ -12,15 +11,15 @@ export interface IButtonProps {
 }
 
 const Element = styled.button`
-    background: ${color.primary};
+    background: ${props => props.theme.color.primary};
     padding: 10px 20px;
     border: none;
-    color: ${color.white};
+    color: ${props => props.theme.color.white};
     font-size: 16px;
     outline: none;
     border-radius: 5px;
     cursor: pointer;
-    font-family: ${font.futura};
+    font-family: ${props => props.theme.font.futura};
 `;
 
 /*

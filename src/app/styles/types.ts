@@ -8,3 +8,8 @@ export interface IColors {
 export interface IFonts {
     futura: string;
 }
+
+export interface ITheme {
+    color: IColors;
+    font: IFonts;
+}
