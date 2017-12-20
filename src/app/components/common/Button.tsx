@@ -22,11 +22,6 @@ const Element = styled.button`
     font-family: ${props => props.theme.font.futura};
 `;
 
-/*
- * Define default values for our props here.
- * We will give this object after we declare Button.
- * This keeps all props info grouped at the top.
- */
 const defaultProps: IButtonProps = {
     children: null,
     disabled: false,
@@ -34,12 +29,6 @@ const defaultProps: IButtonProps = {
     type: 'button',
 };
 
-/*
- * __NOTE: declaring a component
- * Button is of type: React.StatelessComponent.
- * This type accepts an interface for its props. We give it the interface we created above.
- * The props that are passed are now linked to the interface.
- */
 const Button: React.StatelessComponent<IButtonProps> = (props: IButtonProps) => (
     <Element
         disabled={props.disabled}

@@ -21,12 +21,6 @@ const LogoIconWrapper = styled(LogoIcon)`
     margin: 0 auto;
 `;
 
-/*
- * __NOTE: extending redux state interface to props
- * Because we are connecting the Test redux store to our component, we can extend our component props interface
- * with that of the Test redux store interface.
- * Now this props interface will also contain "passed", "loading", and "error".
- */
 export interface IHomeProps extends ITestState {
     install: Dispatcher;
 }

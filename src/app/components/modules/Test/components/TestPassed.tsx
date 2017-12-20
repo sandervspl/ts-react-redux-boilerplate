@@ -15,9 +15,6 @@ const Confetti = styled.img`
     width: 22px;
 `;
 
-/*
- * __NOTE: Component without props
- */
 const TestPassed: React.StatelessComponent = () => (
     <div>
         <Message>
