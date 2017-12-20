@@ -1,29 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import styled from 'services/styled-components';
 
-import { IReduxStore } from 'app/ducks';
-import { Dispatcher } from 'ducks/types';
-import { install, ITestState } from 'ducks/test';
+import { install } from 'ducks/modules/test';
 
-import LogoIcon from 'vectors/logo.svg';
 import Button from 'common/Button';
+import { LogoIconWrapper, Section } from './styled';
 import TestPassed from './components/TestPassed';
 
-const Section = styled.section`
-    text-align: center;
-`;
-
-// Extend LogoIcon component with styling
-const LogoIconWrapper = styled(LogoIcon)`
-    width: 200px;
-    display: block;
-    margin: 0 auto;
-`;
-
-export interface IHomeProps extends ITestState {
-    install: Dispatcher;
-}
+import { IHomeProps } from './types';
+import { IReduxStore } from 'app/ducks';
 
 const Test: React.StatelessComponent<IHomeProps> = (props: IHomeProps) => (
     <Section>

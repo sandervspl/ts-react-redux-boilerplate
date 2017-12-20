@@ -3,13 +3,6 @@ import styled from 'services/styled-components';
 
 import { propChildrenAll } from 'services/customTypes';
 
-export interface IButtonProps {
-    children?: propChildrenAll; // '?' indicates optional
-    disabled?: boolean;
-    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
-    type?: string;
-}
-
 const Element = styled.button`
     background: ${props => props.theme.color.primary};
     padding: 10px 20px;
@@ -21,6 +14,13 @@ const Element = styled.button`
     cursor: pointer;
     font-family: ${props => props.theme.font.futura};
 `;
+
+export interface IButtonProps {
+    children?: propChildrenAll;
+    disabled?: boolean;
+    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    type?: string;
+}
 
 const defaultProps: IButtonProps = {
     children: null,
