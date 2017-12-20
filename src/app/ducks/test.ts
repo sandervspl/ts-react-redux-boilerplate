@@ -1,8 +1,7 @@
 import { Dispatch } from 'redux';
-import { IReducerState, IAction } from 'services/interfaces';
+import { IReducerState, IAction, Dispatcher } from 'ducks/types';
 import { IReduxStore } from './index';
 import createAction from 'services/createAction';
-import { dispatcher } from 'ducks/interfaces';
 
 const LOAD = 'test/load';
 const SUCCESS = 'test/success';
@@ -87,7 +86,7 @@ export const load = createAction(LOAD);
 export const success = createAction(SUCCESS);
 export const failed = createAction(FAILED);
 
-export const install: dispatcher = () => (dispatch: Dispatch<IReduxStore>) => {
+export const install: Dispatcher = () => (dispatch: Dispatch<IReduxStore>) => {
     dispatch(load());
 
     setTimeout(() => {

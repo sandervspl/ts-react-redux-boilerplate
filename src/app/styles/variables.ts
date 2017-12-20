@@ -1,4 +1,4 @@
-import { IColors, IFonts } from './interfaces';
+import { IColors, IFonts } from './types';
 
 export const color: IColors = {
     black: '#000000',

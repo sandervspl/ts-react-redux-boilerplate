@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import { IReduxStore } from 'app/ducks';
-import { dispatcher } from 'ducks/interfaces';
+import { Dispatcher } from 'ducks/types';
 import { install, ITestState } from 'ducks/test';
 
 import LogoIcon from 'vectors/logo.svg';
@@ -28,7 +28,7 @@ const LogoIconWrapper = styled(LogoIcon)`
  * Now this props interface will also contain "passed", "loading", and "error".
  */
 export interface IHomeProps extends ITestState {
-    install: dispatcher;
+    install: Dispatcher;
 }
 
 const Test: React.StatelessComponent<IHomeProps> = (props: IHomeProps) => (

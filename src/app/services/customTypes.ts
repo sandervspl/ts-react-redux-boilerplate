@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IAction } from 'services/interfaces';
+import { IAction } from 'ducks/types';
 
 /*
  * __NOTE: Custom types

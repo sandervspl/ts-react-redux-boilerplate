@@ -6,7 +6,7 @@
 */
 
 import { actionCreator } from 'services/customTypes';
-import { IAction } from 'services/interfaces';
+import { IAction } from 'ducks/types';
 
 /*
  * Declare that this is a function that returns an "actionCreator" type.
