@@ -16,3 +16,5 @@ export interface IAction {
     error?: boolean;
     meta?: any;
 }
+
+export type ActionCreator = (payload?: any, meta?: any) => IAction;
