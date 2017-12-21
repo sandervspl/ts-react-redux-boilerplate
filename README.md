@@ -20,7 +20,7 @@
 * [Webpack Hot Middleware](https://github.com/glenjamin/webpack-hot-middleware)
 * [Redux Dev Tools](https://github.com/gaearon/redux-devtools) for next generation DX (developer experience).
 * [TSLint](https://palantir.github.io/tslint/) to maintain a consistent code style
-* [Styled-Components](https://github.com/styled-components/styled-components/) with [styled-components](https://www.styled-components.com/) for CSS-in-JS
+* [Styled-Components](https://github.com/styled-components/styled-components/) for CSS-in-JS
 * [TypeScript](https://github.com/Microsoft/TypeScript) to use a typed superset of JavaScript for more consistent and better code
 * Refer to `package.json` for more details
 
@@ -65,7 +65,14 @@ To use de Redux DevTools install the [Redux DevTools extension](https://chrome.g
 This project uses CSS-in-JS styling with [Styled-Components](https://github.com/styled-components/styled-components/).
 
 ### Global styles
-You can find the global styles in the `styles` folder. In this folder you can also specify all the variables.  
+You can configure the styled-components theme in the `styles` folder. In this folder you can also specify all the variables. When styling a components, grab the `theme` from the styled-component's props.
+
+Example:
+```
+const Button = styled.button`
+    background-color: ${props => props.theme.color.white};
+`
+```
 
 ## Roadmap
 - TBD
