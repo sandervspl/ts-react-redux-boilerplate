@@ -8,7 +8,7 @@ import { LogoIconWrapper, Section } from './styled';
 import TestPassed from './components/TestPassed';
 
 import { HomeProps } from './types';
-import { ReduxStore } from 'app/ducks';
+import { ReduxState } from 'app/ducks';
 
 const Test: React.StatelessComponent<HomeProps> = (props: HomeProps) => (
     <Section>
@@ -23,7 +23,7 @@ const Test: React.StatelessComponent<HomeProps> = (props: HomeProps) => (
     </Section>
 );
 
-const mapStateToProps = (store: ReduxStore) => ({
+const mapStateToProps = (store: ReduxState) => ({
     test: store.test,
 });
 

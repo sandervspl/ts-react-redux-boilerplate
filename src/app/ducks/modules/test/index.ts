@@ -1,7 +1,7 @@
 import createAction from 'services/createAction';
 import { Dispatcher } from 'ducks/types';
 import { Dispatch } from 'redux';
-import { ReduxStore } from 'app/ducks';
+import { ReduxState } from 'app/ducks';
 import { TestStateMap, TestAction } from './types';
 
 const LOAD = 'test/load';
@@ -46,7 +46,7 @@ export const load = createAction(LOAD);
 export const success = createAction(SUCCESS);
 export const failed = createAction(FAILED);
 
-export const install: Dispatcher = () => (dispatch: Dispatch<ReduxStore>) => {
+export const install: Dispatcher = () => (dispatch: Dispatch<ReduxState>) => {
     dispatch(load());
 
     setTimeout(() => {

@@ -1,7 +1,7 @@
 import { Dispatch } from 'react-redux';
-import { ReduxStore } from 'app/ducks';
+import { ReduxState } from 'app/ducks';
 
-export type Dispatcher = () => (dispatch: Dispatch<ReduxStore>) => void;
+export type Dispatcher = () => (dispatch: Dispatch<ReduxState>) => void;
 
 // initial state
 export interface ReducerState {

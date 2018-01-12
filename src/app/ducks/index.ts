@@ -1,7 +1,7 @@
 import { TestStateMap } from './modules/test/types';
 import * as test from './modules/test';
 
-export interface ReduxStore {
+export interface ReduxState {
     test: TestStateMap;
 }
 
