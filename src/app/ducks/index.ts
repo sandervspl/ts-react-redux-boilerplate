@@ -1,8 +1,8 @@
-import { ITestStateMap } from './modules/test/types';
+import { TestStateMap } from './modules/test/types';
 import * as test from './modules/test';
 
-export interface IReduxStore {
-    test: ITestStateMap;
+export interface ReduxStore {
+    test: TestStateMap;
 }
 
 export const appReducers = {

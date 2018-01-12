@@ -1,20 +1,20 @@
 import createAction from 'services/createAction';
 import { Dispatcher } from 'ducks/types';
 import { Dispatch } from 'redux';
-import { IReduxStore } from 'app/ducks';
-import { ITestStateMap, ITestAction } from './types';
+import { ReduxStore } from 'app/ducks';
+import { TestStateMap, TestAction } from './types';
 
 const LOAD = 'test/load';
 const SUCCESS = 'test/success';
 const FAILED = 'test/failed';
 
-const initialState: ITestStateMap = {
+const initialState: TestStateMap = {
     error: false,
     loading: false,
     passed: false,
 };
 
-export const reducer = (state: ITestStateMap = initialState, action: ITestAction): ITestStateMap => {
+export const reducer = (state: TestStateMap = initialState, action: TestAction): TestStateMap => {
     switch (action.type) {
         case LOAD:
             return {
@@ -46,7 +46,7 @@ export const load = createAction(LOAD);
 export const success = createAction(SUCCESS);
 export const failed = createAction(FAILED);
 
-export const install: Dispatcher = () => (dispatch: Dispatch<IReduxStore>) => {
+export const install: Dispatcher = () => (dispatch: Dispatch<ReduxStore>) => {
     dispatch(load());
 
     setTimeout(() => {

@@ -1,6 +1,6 @@
 import { propChildrenAll } from 'services/customTypes';
 
-export interface IButtonProps {
+export interface ButtonProps {
     children?: propChildrenAll;
     disabled?: boolean;
     onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;

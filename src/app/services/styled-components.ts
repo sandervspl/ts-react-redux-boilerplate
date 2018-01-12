@@ -1,5 +1,5 @@
 import * as styledComponents from 'styled-components';
-import { ITheme } from 'styles/types';
+import { Theme } from 'styles/types';
 
 const {
     default: styled,
@@ -7,7 +7,7 @@ const {
     injectGlobal,
     keyframes,
     ThemeProvider,
-} = (styledComponents as any) as styledComponents.ThemedStyledComponentsModule<ITheme>;
+} = (styledComponents as any) as styledComponents.ThemedStyledComponentsModule<Theme>;
 
 export { css, injectGlobal, keyframes, ThemeProvider };
 export default styled;

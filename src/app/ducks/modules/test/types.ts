@@ -1,14 +1,14 @@
-import { IAction, IReducerState } from 'ducks/types';
+import { Action, ReducerState } from 'ducks/types';
 
-export interface ITestStateMap extends IReducerState {
+export interface TestStateMap extends ReducerState {
     passed?: boolean;
 }
 
-export interface ITestState {
-    test: ITestStateMap;
+export interface TestState {
+    test: TestStateMap;
 }
 
-export interface ITestAction extends IAction {
+export interface TestAction extends Action {
     payload: {
         passed: boolean;
     };

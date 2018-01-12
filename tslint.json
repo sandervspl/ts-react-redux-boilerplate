@@ -28,7 +28,7 @@
         "variable-name": false,
         "object-shorthand-properties-first": false,
         "max-line-length": [true, 120],
-        "interface-name": true,
+        "interface-name": false,
         "align": false,
         "import-name": false,
         "no-angle-bracket-type-assertion": true

@@ -1,6 +1,6 @@
-import { ITestState } from 'ducks/modules/test/types';
+import { TestState } from 'ducks/modules/test/types';
 import { Dispatcher } from 'ducks/types';
 
-export interface IHomeProps extends ITestState {
+export interface HomeProps extends TestState {
     install: Dispatcher;
 }

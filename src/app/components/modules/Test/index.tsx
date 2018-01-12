@@ -7,10 +7,10 @@ import Button from 'common/Button';
 import { LogoIconWrapper, Section } from './styled';
 import TestPassed from './components/TestPassed';
 
-import { IHomeProps } from './types';
-import { IReduxStore } from 'app/ducks';
+import { HomeProps } from './types';
+import { ReduxStore } from 'app/ducks';
 
-const Test: React.StatelessComponent<IHomeProps> = (props: IHomeProps) => (
+const Test: React.StatelessComponent<HomeProps> = (props: HomeProps) => (
     <Section>
         <LogoIconWrapper />
         {props.test.passed ? (
@@ -23,7 +23,7 @@ const Test: React.StatelessComponent<IHomeProps> = (props: IHomeProps) => (
     </Section>
 );
 
-const mapStateToProps = (store: IReduxStore) => ({
+const mapStateToProps = (store: ReduxStore) => ({
     test: store.test,
 });
 

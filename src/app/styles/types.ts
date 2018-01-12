@@ -1,15 +1,15 @@
-export interface IColors {
+export interface Colors {
     black: string;
     white: string;
     primary: string;
     text: string;
 }
 
-export interface IFonts {
+export interface Fonts {
     futura: string;
 }
 
-export interface ITheme {
-    color: IColors;
-    font: IFonts;
+export interface Theme {
+    color: Colors;
+    font: Fonts;
 }
