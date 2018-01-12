@@ -1,8 +1,9 @@
 import createAction from 'services/createAction';
-import { Dispatcher } from 'ducks/types';
+import { Thunk } from 'ducks/types';
 import { Dispatch } from 'redux';
 import { ReduxState } from 'app/ducks';
-import { TestStateMap, TestAction } from './types';
+import { TestStateMap, TestAction, InstallAction } from './types';
+import { ApiHelper } from 'services/apiHelper';
 
 const LOAD = 'test/load';
 const SUCCESS = 'test/success';
@@ -46,10 +47,15 @@ export const load = createAction(LOAD);
 export const success = createAction(SUCCESS);
 export const failed = createAction(FAILED);
 
-export const install: Dispatcher = () => (dispatch: Dispatch<ReduxState>) => {
-    dispatch(load());
+// async actions
+export const install: InstallAction = (): Thunk => {
+    return (dispatch: Dispatch<ReduxState>, getState: () => ReduxState, api: ApiHelper): Promise<void> => {
+        dispatch(load());
 
-    setTimeout(() => {
-        dispatch(success({ passed: true }));
-    }, 2000);
+        setTimeout(() => {
+            dispatch(success({ passed: true }));
+        }, 2000);
+
+        return;
+    };
 };

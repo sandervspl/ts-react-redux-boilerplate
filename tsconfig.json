@@ -7,7 +7,7 @@
     "allowUnreachableCode": true,
     "pretty": true,
     "module": "commonjs",
-    "target": "es5",
+    "target": "es2017",
     "jsx": "react",
     "baseUrl": "src",
     "paths": {
@@ -24,8 +24,8 @@
       "styles/*": ["app/styles/*"],
       "vectors/*": ["app/static/vectors/*"]
     },
-    "include": [
-      "./src/**/*"
-    ]
+    "include": ["./src/**/*"],
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["dom", "es6"]
   }
 }

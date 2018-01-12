@@ -1,7 +1,12 @@
 import { Dispatch } from 'react-redux';
 import { ReduxState } from 'app/ducks';
+import { ApiHelper } from 'services/apiHelper';
 
 export type Dispatcher = () => (dispatch: Dispatch<ReduxState>) => void;
+
+export type ActionCreator = (payload?: any, meta?: any) => Action;
+
+export type Thunk = (dispatch: Dispatch<ReduxState>, getState: () => ReduxState, api: ApiHelper) => void;
 
 // initial state
 export interface ReducerState {
@@ -16,5 +21,3 @@ export interface Action {
     error?: boolean;
     meta?: any;
 }
-
-export type ActionCreator = (payload?: any, meta?: any) => Action;

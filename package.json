@@ -26,6 +26,7 @@
     "babel"
   ],
   "dependencies": {
+    "@types/qs": "^6.5.1",
     "babel-polyfill": "^6.26.0",
     "compression": "^1.7.1",
     "express": "^4.16.2",
@@ -33,6 +34,7 @@
     "lodash": "^4.17.4",
     "normalize.css": "^7.0.0",
     "prop-types": "^15.6.0",
+    "qs": "^6.5.1",
     "react": "^16.0.0",
     "react-css-modules": "^4.7.1",
     "react-dom": "^16.0.0",

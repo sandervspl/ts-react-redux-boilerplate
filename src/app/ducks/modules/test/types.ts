@@ -1,4 +1,4 @@
-import { Action, ReducerState } from 'ducks/types';
+import { Action, ReducerState, Thunk } from 'ducks/types';
 
 export interface TestStateMap extends ReducerState {
     passed?: boolean;
@@ -13,3 +13,5 @@ export interface TestAction extends Action {
         passed: boolean;
     };
 }
+
+export type InstallAction = () => Thunk;
