@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpackConfig = require('./webpack.config');
 const globals = require('./src/config/globals');
 
@@ -40,7 +39,6 @@ module.exports = {
                 exclude: [
                     /\.jsx?$/,
                     /\.tsx?$/,
-                    /\.css$/,
                     /\.svg$/,
                     /\.(jpe?g|png|gif)$/i,
                     /\.json$/,
@@ -53,7 +51,6 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin(globals('client')),
         new webpack.optimize.ModuleConcatenationPlugin(),
-        new ExtractTextPlugin({ filename: 'style.css', allChunks: true }),
     ],
     resolve: webpackConfig.resolve,
 };
