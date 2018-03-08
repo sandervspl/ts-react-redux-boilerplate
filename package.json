@@ -11,7 +11,7 @@
   "scripts": {
     "start": "node devServer.js",
     "build": "NODE_ENV=production run-p clean build:client build:server",
-    "build:client": "webpack -p --hide-modules --config webpack.config.prod.js",
+    "build:client": "webpack --hide-modules --config webpack.config.prod.js",
     "build:server": "webpack -p --hide-modules --config webpack.config.server.js",
     "server": "node dist/server.js",
     "clean": "rimraf dist/",
@@ -46,7 +46,8 @@
     "redux-thunk": "^2.2.0",
     "styled-components": "^3.2.1",
     "styled-normalize": "^2.2.1",
-    "svg-react-loader": "^0.4.5"
+    "svg-react-loader": "^0.4.5",
+    "uglifyjs-webpack-plugin": "^1.2.2"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.78",
