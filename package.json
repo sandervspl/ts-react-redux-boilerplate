@@ -12,7 +12,7 @@
     "start": "node devServer.js",
     "build": "NODE_ENV=production run-p clean build:client build:server",
     "build:client": "webpack --hide-modules --config webpack.config.prod.js",
-    "build:server": "webpack -p --hide-modules --config webpack.config.server.js",
+    "build:server": "webpack --hide-modules --config webpack.config.server.js",
     "server": "node dist/server.js",
     "clean": "rimraf dist/",
     "lint": "eslint src/"
@@ -23,7 +23,9 @@
     "express",
     "redux",
     "boilerplate",
-    "babel"
+    "babel",
+    "typescript",
+    "styled-components"
   ],
   "dependencies": {
     "@types/qs": "^6.5.1",
@@ -32,11 +34,9 @@
     "express": "^4.16.2",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",
-    "normalize.css": "^7.0.0",
     "prop-types": "^15.6.0",
     "qs": "^6.5.1",
     "react": "^16.0.0",
-    "react-css-modules": "^4.7.1",
     "react-dom": "^16.0.0",
     "react-hot-loader": "^3.1.1",
     "react-redux": "^5.0.6",
