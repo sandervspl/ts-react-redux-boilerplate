@@ -1,14 +1,23 @@
 import React from 'react';
+import { StyleSheetManager, ThemeProvider } from 'styled-components';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router';
 import store from 'app/store';
 import App from 'components/App';
 
-const ServerRoot = ({ location }) => (
+import { theme, globalStyles } from 'styles';
+
+globalStyles();
+
+const ServerRoot = ({ location, sheet }) => (
     <Provider store={store}>
-        <StaticRouter location={location} context={{}}>
-            <App />
-        </StaticRouter>
+        <StyleSheetManager sheet={sheet}>
+            <ThemeProvider theme={theme}>
+                <StaticRouter location={location} context={{}}>
+                    <App />
+                </StaticRouter>
+            </ThemeProvider>
+        </StyleSheetManager>
     </Provider>
 );
 

@@ -15,7 +15,7 @@ app.use(express.static(path.resolve(__dirname, '../../dist')));
 const sheet = new ServerStyleSheet();
 app.use((req, res) => {
     const html = SSR
-        ? renderToString(<ServerRoot location={req.url} />)
+        ? renderToString(<ServerRoot location={req.url} sheet={sheet.instance} />)
         : ' ';
 
     const styleTags = sheet.getStyleTags();
