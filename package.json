@@ -65,7 +65,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "file-loader": "^1.1.5",
+    "file-loader": "^1.1.11",
     "json-loader": "^0.5.7",
     "npm-run-all": "^4.1.1",
     "rimraf": "^2.6.2",

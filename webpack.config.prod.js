@@ -1,11 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const globals = require('./src/config/globals');
 const webpackConfig = require('./webpack.config');
 
 module.exports = {
     name: 'client',
+    mode: 'production',
     devtool: 'cheap-source-map',
     entry: [
         'babel-polyfill',
@@ -17,7 +17,7 @@ module.exports = {
         publicPath: '/',
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
@@ -45,14 +45,13 @@ module.exports = {
                     /\.json$/,
                 ],
                 loader: 'file-loader',
-                options: { name: 'static/[name].[ext]' },
+                query: { name: 'static/[name].[ext]' },
             },
         ],
     },
     plugins: [
         new webpack.DefinePlugin(globals('client')),
         new webpack.optimize.ModuleConcatenationPlugin(),
-        new UglifyJSPlugin(),
     ],
     resolve: webpackConfig.resolve,
 };
