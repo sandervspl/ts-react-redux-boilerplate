@@ -12,5 +12,18 @@
                 "ssr": true
             }
         ]
-    ]
+    ],
+    "env": {
+        "production": {
+            "plugins": [
+                [
+                    "transform-react-remove-prop-types",
+                    {
+                        "mode": "remove",
+                        "removeImport": true
+                    }
+                ]
+            ]
+        }
+    }
 }
