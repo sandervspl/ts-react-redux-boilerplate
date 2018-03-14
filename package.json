@@ -23,7 +23,9 @@
     "express",
     "redux",
     "boilerplate",
-    "babel"
+    "babel",
+    "typescript",
+    "styled-components"
   ],
   "dependencies": {
     "@types/qs": "^6.5.1",
