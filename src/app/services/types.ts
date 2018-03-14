@@ -1,3 +1,10 @@
+// prop children types
+import * as React from 'react';
+
+export type propChildrenText = string;
+export type propChildrenNode = React.ReactChild | React.ReactChildren | React.ReactNode;
+export type propChildrenAll = propChildrenText | propChildrenNode;
+
 export interface OptionsBody {
     headers: { [key: string]: string };
     method: string;
