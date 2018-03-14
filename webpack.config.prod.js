@@ -67,7 +67,7 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
-                loader: 'awesome-typescript-loader',
+                loader: 'ts-loader',
             },
             {
                 test: /\.svg$/,
