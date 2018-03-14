@@ -4,7 +4,6 @@ const globals = require('./src/config/globals');
 
 module.exports = {
     name: 'client',
-    mode: 'development',
     devtool: 'eval-source-map',
     entry: [
         'webpack-hot-middleware/client?reload=true&noInfo=true',
@@ -13,7 +12,7 @@ module.exports = {
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js',
+        filename: 'bundle.js',
         publicPath: '/dist/',
     },
     module: {

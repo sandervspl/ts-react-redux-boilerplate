@@ -5,7 +5,6 @@ const globals = require('./src/config/globals');
 
 module.exports = {
     name: 'server',
-    mode: 'production',
     devtool: 'cheap-source-map',
     target: 'node',
     node: { __dirname: true },
@@ -17,7 +16,7 @@ module.exports = {
         publicPath: '/',
     },
     module: {
-        rules: [
+        loaders: [
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
@@ -40,12 +39,10 @@ module.exports = {
                     /\.json$/,
                 ],
                 loader: 'file-loader',
-                query: { name: 'static/[name].[ext]' },
+                options: { name: 'static/[name].[ext]' },
             },
         ],
     },
-    plugins: [
-        new webpack.DefinePlugin(globals('server')),
-    ],
+    plugins: [new webpack.DefinePlugin(globals('server'))],
     resolve: webpackConfig.resolve,
 };
