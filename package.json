@@ -2,10 +2,10 @@
   "name": "React-Redux-Boilerplate",
   "version": "4.0.0",
   "description": "A starter boilerplate to create comprehensive React apps with Redux and serverside rendering.",
-  "author": "jornbostelaar",
+  "author": "sandervispoel <contact@sandervispoel.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JBostelaar/react-redux-boilerplate"
+    "url": "https://github.com/sandervspl/react-redux-typescript-styled-components-boilerplate"
   },
   "license": "MIT",
   "scripts": {
@@ -34,11 +34,9 @@
     "express": "^4.16.2",
     "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.4",
-    "normalize.css": "^7.0.0",
     "prop-types": "^15.6.0",
     "qs": "^6.5.1",
     "react": "^16.0.0",
-    "react-css-modules": "^4.7.1",
     "react-dom": "^16.0.0",
     "react-hot-loader": "^3.1.1",
     "react-redux": "^5.0.6",
