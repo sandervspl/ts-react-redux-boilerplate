@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const globals = require('./src/config/globals');
 const webpackConfig = require('./webpack.config');
 
@@ -93,6 +94,7 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin(globals('client')),
         new webpack.optimize.ModuleConcatenationPlugin(),
+        new BundleAnalyzerPlugin(),
     ],
     resolve: webpackConfig.resolve,
 };
