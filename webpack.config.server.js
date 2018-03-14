@@ -5,6 +5,7 @@ const globals = require('./src/config/globals');
 
 module.exports = {
     name: 'server',
+    mode: 'production',
     devtool: 'cheap-source-map',
     target: 'node',
     node: { __dirname: true },
@@ -16,7 +17,7 @@ module.exports = {
         publicPath: '/',
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
@@ -39,7 +40,7 @@ module.exports = {
                     /\.json$/,
                 ],
                 loader: 'file-loader',
-                options: { name: 'static/[name].[ext]' },
+                query: { name: 'static/[name].[ext]' },
             },
         ],
     },

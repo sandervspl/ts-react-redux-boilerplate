@@ -4,6 +4,7 @@ const globals = require('./src/config/globals');
 
 module.exports = {
     name: 'client',
+    mode: 'development',
     devtool: 'eval-source-map',
     entry: [
         'webpack-hot-middleware/client?reload=true&noInfo=true',
@@ -16,7 +17,7 @@ module.exports = {
         publicPath: '/dist/',
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
@@ -45,7 +46,7 @@ module.exports = {
                     /\.json$/,
                 ],
                 loader: 'file-loader',
-                options: { name: 'static/[name].[ext]' },
+                query: { name: 'static/[name].[ext]' },
             },
         ],
     },

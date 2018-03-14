@@ -6,6 +6,7 @@ const webpackConfig = require('./webpack.config');
 
 module.exports = {
     name: 'client',
+    mode: 'production',
     devtool: 'cheap-source-map',
     entry: [
         'babel-polyfill',
@@ -16,8 +17,48 @@ module.exports = {
         filename: webpackConfig.output.filename,
         publicPath: '/',
     },
+    optimization: {
+        minimizer: [
+            new UglifyJSPlugin({
+                uglifyOptions: {
+                    ecma: 8,
+                    compress: {
+                        warnings: false,
+                        // Disabled because of an issue with Uglify breaking seemingly valid code:
+                        // https://github.com/facebook/create-react-app/issues/2376
+                        // Pending further investigation:
+                        // https://github.com/mishoo/UglifyJS2/issues/2011
+                        comparisons: false,
+                    },
+                    mangle: {
+                        safari10: true,
+                    },
+                    output: {
+                        comments: false,
+                        // Turned on because emoji and regex is not minified properly using default
+                        // https://github.com/facebook/create-react-app/issues/2488
+                        ascii_only: true,
+                    },
+                },
+                // Use multi-process parallel running to improve the build speed
+                // Default number of concurrent runs: os.cpus().length - 1
+                parallel: true,
+                // Enable file caching
+                cache: true,
+                sourceMap: true,
+            }),
+        ],
+        // Automatically split vendor and commons
+        // https://twitter.com/wSokra/status/969633336732905474
+        splitChunks: {
+            chunks: 'all',
+        },
+        // Keep the runtime chunk seperated to enable long term caching
+        // https://twitter.com/wSokra/status/969679223278505985
+        runtimeChunk: true,
+    },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
@@ -45,14 +86,13 @@ module.exports = {
                     /\.json$/,
                 ],
                 loader: 'file-loader',
-                options: { name: 'static/[name].[ext]' },
+                query: { name: 'static/[name].[ext]' },
             },
         ],
     },
     plugins: [
         new webpack.DefinePlugin(globals('client')),
         new webpack.optimize.ModuleConcatenationPlugin(),
-        new UglifyJSPlugin(),
     ],
     resolve: webpackConfig.resolve,
 };
