@@ -9,6 +9,7 @@ const API_ENDPOINT = ({
 interface OptionsBody {
     headers: { [key: string]: string };
     method: string;
+    body?: string;
 }
 
 interface Options {
