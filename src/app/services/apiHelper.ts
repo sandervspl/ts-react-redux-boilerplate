@@ -2,10 +2,10 @@ import * as qs from 'qs';
 import { RequestOptions, GenerateOptions } from './types';
 
 const env = process.env.NODE_ENV || 'development';
-const API_ENDPOINT = ({
+const API_ENDPOINT = {
     production: '',
     development: '',
-} as { [key: string]: string })[env];
+}[env];
 
 const request = ({ path, options, handle401 }: RequestOptions): Promise<any> => {
     return new Promise((resolve, reject) => {
