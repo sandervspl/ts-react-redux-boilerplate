@@ -1,4 +1,5 @@
 import * as qs from 'qs';
+import { RequestOptions, GenerateOptions } from './types';
 
 const env = process.env.NODE_ENV || 'development';
 const API_ENDPOINT = ({
@@ -6,35 +7,7 @@ const API_ENDPOINT = ({
     development: '',
 } as { [key: string]: string })[env];
 
-interface OptionsBody {
-    headers: { [key: string]: string };
-    method: string;
-    body?: string;
-}
-
-interface Options {
-    path: string;
-    options: OptionsBody;
-    handle401: boolean;
-}
-
-interface MethodOptions {
-    method?: string;
-    path: string;
-    query?: any;
-    body?: object;
-    withAuth?: boolean;
-}
-
-export interface ApiHelper {
-    get: (options: MethodOptions) => Promise<any>;
-    del: (options: MethodOptions) => Promise<any>;
-    post: (options: MethodOptions) => Promise<any>;
-    put: (options: MethodOptions) => Promise<any>;
-    patch: (options: MethodOptions) => Promise<any>;
-}
-
-const request = ({ path, options, handle401 }: Options): Promise<any> => {
+const request = ({ path, options, handle401 }: RequestOptions): Promise<any> => {
     return new Promise((resolve, reject) => {
         fetch(path, options)
             .then((response) => {
@@ -64,7 +37,7 @@ const request = ({ path, options, handle401 }: Options): Promise<any> => {
     });
 };
 
-const generateOptions = ({ method, path, withAuth = false, query, body }: MethodOptions): Options => ({
+const generateOptions = ({ method, path, withAuth = false, query, body }: GenerateOptions): RequestOptions => ({
     path: `${API_ENDPOINT}${path}${query ? '?' : ''}${qs.stringify(query || {})}`,
     options: {
         headers: {
@@ -77,13 +50,13 @@ const generateOptions = ({ method, path, withAuth = false, query, body }: Method
     handle401: withAuth,
 });
 
-export const get = ({ path, query, withAuth }: MethodOptions) =>
+export const get = ({ path, query, withAuth }: GenerateOptions) =>
     request(generateOptions({ method: 'GET', path, query, withAuth }));
-export const del = ({ path, query, withAuth }: MethodOptions) =>
+export const del = ({ path, query, withAuth }: GenerateOptions) =>
     request(generateOptions({ method: 'DELETE', path, query, withAuth }));
-export const post = ({ path, body, withAuth }: MethodOptions) =>
+export const post = ({ path, body, withAuth }: GenerateOptions) =>
     request(generateOptions({ method: 'POST', path, body, withAuth }));
-export const put = ({ path, body, withAuth }: MethodOptions) =>
+export const put = ({ path, body, withAuth }: GenerateOptions) =>
     request(generateOptions({ method: 'PUT', path, body, withAuth }));
-export const patch = ({ path, body, withAuth }: MethodOptions) =>
+export const patch = ({ path, body, withAuth }: GenerateOptions) =>
     request(generateOptions({ method: 'PATCH', path, body, withAuth }));

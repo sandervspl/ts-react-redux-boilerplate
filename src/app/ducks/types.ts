@@ -1,6 +1,6 @@
 import { Dispatch } from 'react-redux';
 import { ReduxState } from 'app/ducks';
-import { ApiHelper } from 'services/apiHelper';
+import { ApiHelper } from 'services/types';
 
 export type Dispatcher = () => (dispatch: Dispatch<ReduxState>) => void;
 

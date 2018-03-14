@@ -3,7 +3,7 @@ import { Thunk } from 'ducks/types';
 import { Dispatch } from 'redux';
 import { ReduxState } from 'app/ducks';
 import { TestStateMap, TestAction, InstallAction } from './types';
-import { ApiHelper } from 'services/apiHelper';
+import { ApiHelper } from 'services/types';
 
 const LOAD = 'test/load';
 const SUCCESS = 'test/success';
