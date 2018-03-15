@@ -15,7 +15,6 @@ module.exports = {
     ],
     output: {
         path: webpackConfig.output.path,
-        filename: webpackConfig.output.filename,
         publicPath: '/',
     },
     optimization: {
@@ -53,6 +52,9 @@ module.exports = {
         // https://twitter.com/wSokra/status/969633336732905474
         splitChunks: {
             chunks: 'all',
+            // Files will invalidate i. e. when more chunks with the same vendors are added.
+            // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
+            name: false,
         },
         // Keep the runtime chunk seperated to enable long term caching
         // https://twitter.com/wSokra/status/969679223278505985
