@@ -10,9 +10,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon",
-    "build": "NODE_ENV=production run-p clean build:client build:server",
+    "build": "NODE_ENV=production run-p clean build:server build:client",
     "build:client": "webpack --hide-modules --config webpack.config.prod.js",
-    "build:server": "webpack -p --hide-modules --config webpack.config.server.js",
+    "build:server": "webpack --hide-modules --config webpack.config.server.js",
     "start": "node dist/server.js",
     "clean": "rimraf dist/",
     "lint": "eslint src/"
