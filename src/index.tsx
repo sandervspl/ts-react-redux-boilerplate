@@ -5,14 +5,12 @@ import { AppContainer } from 'react-hot-loader';
 
 import Root from 'components/Root';
 
-const mod = module as any;
-
 const render = (Element: any) => {
     ReactDOM.hydrate(<Element />, document.getElementById('app'));
 };
 
-if (__DEV__ && mod.hot) {
-    mod.hot.accept(() => {
+if (__DEV__ && module.hot) {
+    module.hot.accept(() => {
         const NextApp = require('./app/components/Root').default;
         render(
             <AppContainer>

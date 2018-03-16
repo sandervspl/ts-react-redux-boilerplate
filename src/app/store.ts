@@ -7,8 +7,7 @@ let middleware = applyMiddleware(thunk.withExtraArgument(api));
 const reducers = combineReducers<ReduxState>(appReducers);
 
 if (__CLIENT__ && __DEV__) {
-    const w = window as any;
-    const devTools = w.devToolsExtension;
+    const devTools = window.devToolsExtension;
 
     if (process.env.NODE_ENV === 'development' && typeof devTools === 'function') {
         middleware = compose(middleware, devTools()) as GenericStoreEnhancer;
