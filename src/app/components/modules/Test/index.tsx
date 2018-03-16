@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { install } from 'ducks/modules/test';
 
-import Button from 'common/Button';
+import { Button } from 'components/common';
 import { LogoIconWrapper, Section } from './styled';
 import TestPassed from './components/TestPassed';
 
