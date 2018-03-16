@@ -7,7 +7,7 @@ if (process.env.NODE_ENV === 'development') {
     const webpack = require('webpack');
     const webpackDevMiddleware = require('webpack-dev-middleware');
     const webpackHotMiddleware = require('webpack-hot-middleware');
-    const clientConfig = require('../../webpack.config.js');
+    const clientConfig = require('../../webpack.config.dev.js');
     const serverConfig = require('../../webpack.config.server.js');
     const renderFullPage = require('./helpers/renderFullPage');
 
