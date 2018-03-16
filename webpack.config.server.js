@@ -1,6 +1,6 @@
 const webpack = require('webpack');
+const path = require('path');
 const nodeExternals = require('webpack-node-externals');
-const webpackConfig = require('./webpack.config');
 const webpackProdConfig = require('./webpack.config.prod');
 const globals = require('./src/config/globals');
 
@@ -13,7 +13,7 @@ module.exports = {
     externals: [nodeExternals({ whitelist: /\.(?!js(\?|$))([^.]+(\?|$))/ })],
     entry: ['./src/server/index.ts'],
     output: {
-        path: webpackConfig.output.path,
+        path: path.resolve(__dirname, 'dist'),
         filename: 'server.js',
         publicPath: '/',
     },
@@ -24,11 +24,6 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-            },
             {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
@@ -57,5 +52,21 @@ module.exports = {
         ],
     },
     plugins: [new webpack.DefinePlugin(globals('server'))],
-    resolve: webpackConfig.resolve,
+    resolve: {
+        extensions: ['*', '.js', '.ts', '.tsx'],
+        alias: {
+            app: path.resolve(__dirname, './src/app'),
+            common: path.resolve(__dirname, './src/app/components/common'),
+            components: path.resolve(__dirname, './src/app/components'),
+            config: path.resolve(__dirname, './src/config'),
+            ducks: path.resolve(__dirname, './src/app/ducks'),
+            fonts: path.resolve(__dirname, './src/app/static/fonts'),
+            images: path.resolve(__dirname, './src/app/static/images'),
+            modules: path.resolve(__dirname, './src/app/components/modules'),
+            server: path.resolve(__dirname, './src/server'),
+            services: path.resolve(__dirname, './src/app/services'),
+            styles: path.resolve(__dirname, './src/app/styles'),
+            vectors: path.resolve(__dirname, './src/app/static/vectors'),
+        },
+    },
 };

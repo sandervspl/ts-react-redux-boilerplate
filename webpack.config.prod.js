@@ -1,9 +1,8 @@
-const path = require('path');
 const webpack = require('webpack');
+const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const globals = require('./src/config/globals');
-const webpackConfig = require('./webpack.config');
 
 module.exports = {
     name: 'client',
@@ -14,7 +13,7 @@ module.exports = {
         path.resolve(__dirname, 'src'),
     ],
     output: {
-        path: webpackConfig.output.path,
+        path: path.resolve(__dirname, 'dist'),
         publicPath: '/',
     },
     optimization: {
@@ -63,11 +62,6 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-            },
-            {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
                 loader: 'ts-loader',
@@ -98,5 +92,21 @@ module.exports = {
         new webpack.optimize.ModuleConcatenationPlugin(),
         new BundleAnalyzerPlugin(),
     ],
-    resolve: webpackConfig.resolve,
+    resolve: {
+        extensions: ['*', '.js', '.ts', '.tsx'],
+        alias: {
+            app: path.resolve(__dirname, './src/app'),
+            common: path.resolve(__dirname, './src/app/components/common'),
+            components: path.resolve(__dirname, './src/app/components'),
+            config: path.resolve(__dirname, './src/config'),
+            ducks: path.resolve(__dirname, './src/app/ducks'),
+            fonts: path.resolve(__dirname, './src/app/static/fonts'),
+            images: path.resolve(__dirname, './src/app/static/images'),
+            modules: path.resolve(__dirname, './src/app/components/modules'),
+            server: path.resolve(__dirname, './src/server'),
+            services: path.resolve(__dirname, './src/app/services'),
+            styles: path.resolve(__dirname, './src/app/styles'),
+            vectors: path.resolve(__dirname, './src/app/static/vectors'),
+        },
+    },
 };
