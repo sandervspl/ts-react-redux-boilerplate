@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const webpackConfig = require('./webpack.config');
+const webpackProdConfig = require('./webpack.config.prod');
 const globals = require('./src/config/globals');
 
 module.exports = {
@@ -16,12 +17,18 @@ module.exports = {
         filename: 'server.js',
         publicPath: '/',
     },
+    // optimization: webpackProdConfig.optimization,
     module: {
         rules: [
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
+            },
+            {
+                test: /\.tsx?$/,
+                exclude: /node_modules/,
+                loader: 'ts-loader',
             },
             {
                 test: /\.svg$/,
@@ -34,6 +41,7 @@ module.exports = {
             {
                 exclude: [
                     /\.jsx?$/,
+                    /\.tsx?$/,
                     /\.css$/,
                     /\.svg$/,
                     /\.(jpe?g|png|gif)$/i,

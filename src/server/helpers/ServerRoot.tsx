@@ -5,12 +5,12 @@ import { StaticRouter } from 'react-router';
 import store from 'app/store';
 import App from 'components/App';
 
-import { theme, globalStyles } from 'styles';
+import { theme, globalStyles } from 'app/styles';
 
 globalStyles();
 
-const ServerRoot = ({ location, sheet }) => (
-    <Provider store={store}>
+export default ({ location, sheet }) => (
+    <Provider store={store({ client: false })}>
         <StyleSheetManager sheet={sheet}>
             <ThemeProvider theme={theme}>
                 <StaticRouter location={location} context={{}}>
@@ -20,5 +20,3 @@ const ServerRoot = ({ location, sheet }) => (
         </StyleSheetManager>
     </Provider>
 );
-
-export default ServerRoot;

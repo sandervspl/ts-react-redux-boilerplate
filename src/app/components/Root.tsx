@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { store } from 'app/store';
+import store from 'app/store';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'services/styled-components';
@@ -8,7 +8,7 @@ import App from './App';
 import 'app/static/favicon.ico';
 
 const Root: React.StatelessComponent = () => (
-    <Provider store={store}>
+    <Provider store={store({ client: true })}>
         <BrowserRouter>
             <ThemeProvider theme={theme}>
                 <App />
