@@ -7,13 +7,14 @@ if (process.env.NODE_ENV === 'development') {
     const webpack = require('webpack');
     const webpackDevMiddleware = require('webpack-dev-middleware');
     const webpackHotMiddleware = require('webpack-hot-middleware');
-    const config = require('../../webpack.config.js');
+    const clientConfig = require('../../webpack.config.js');
+    const serverConfig = require('../../webpack.config.server.js');
     const renderFullPage = require('./helpers/renderFullPage');
 
-    const compiler = webpack(config);
+    const compiler = webpack([clientConfig, serverConfig]);
 
     app.use(webpackDevMiddleware(compiler, {
-        publicPath: config.output.publicPath,
+        publicPath: clientConfig.output.publicPath,
         historyApiFallback: true,
         hot: true,
         noInfo: true,
@@ -22,7 +23,8 @@ if (process.env.NODE_ENV === 'development') {
         serverSideRender: true,
     }));
 
-    app.use(webpackHotMiddleware(compiler));
+    const clientCompiler = compiler.compilers.find((c: any) => c.name === 'client');
+    app.use(webpackHotMiddleware(clientCompiler));
 
     app.get('*', (req, res) => {
         res.send(renderFullPage({}));

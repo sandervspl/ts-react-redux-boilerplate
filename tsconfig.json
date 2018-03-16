@@ -5,6 +5,7 @@
     "noImplicitAny": false,
     "removeComments": true,
     "allowUnreachableCode": true,
+    "allowSyntheticDefaultImports": true,
     "pretty": true,
     "module": "commonjs",
     "target": "es2017",

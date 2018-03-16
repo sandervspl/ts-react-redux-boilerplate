@@ -11,13 +11,17 @@ module.exports = {
     target: 'node',
     node: { __dirname: true },
     externals: [nodeExternals({ whitelist: /\.(?!js(\?|$))([^.]+(\?|$))/ })],
-    entry: ['./src/server/index.js'],
+    entry: ['./src/server/index.ts'],
     output: {
         path: webpackConfig.output.path,
         filename: 'server.js',
         publicPath: '/',
     },
-    // optimization: webpackProdConfig.optimization,
+    optimization: {
+        minimizer: webpackProdConfig.optimization.minimizer,
+        splitChunks: false,
+        runtimeChunk: false,
+    },
     module: {
         rules: [
             {
