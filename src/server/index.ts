@@ -1,5 +1,5 @@
 import * as express from 'express';
-import { port, SSR } from '../config';
+import { port, SSR } from 'config';
 
 const app = express();
 
@@ -7,8 +7,8 @@ if (process.env.NODE_ENV === 'development') {
     const webpack = require('webpack');
     const webpackDevMiddleware = require('webpack-dev-middleware');
     const webpackHotMiddleware = require('webpack-hot-middleware');
-    const clientConfig = require('../../webpack.config.dev.js');
-    const serverConfig = require('../../webpack.config.server.js');
+    const clientConfig = require('../../webpack/development');
+    const serverConfig = require('../../webpack/server');
     const renderFullPage = require('./helpers/renderFullPage');
 
     const compiler = webpack([clientConfig, serverConfig]);
