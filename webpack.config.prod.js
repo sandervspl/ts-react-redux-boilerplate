@@ -1,9 +1,8 @@
-const path = require('path');
 const webpack = require('webpack');
+const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const globals = require('./src/config/globals');
-const webpackConfig = require('./webpack.config');
 
 module.exports = {
     name: 'client',
@@ -14,7 +13,7 @@ module.exports = {
         path.resolve(__dirname, 'src'),
     ],
     output: {
-        path: webpackConfig.output.path,
+        path: path.resolve(__dirname, 'dist'),
         publicPath: '/',
     },
     optimization: {
@@ -63,14 +62,9 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-            },
-            {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
-                loader: 'ts-loader',
+                use: ["babel-loader", { loader: "ts-loader" }],
             },
             {
                 test: /\.svg$/,
@@ -82,7 +76,6 @@ module.exports = {
             },
             {
                 exclude: [
-                    /\.jsx?$/,
                     /\.tsx?$/,
                     /\.svg$/,
                     /\.(jpe?g|png|gif)$/i,
@@ -98,5 +91,7 @@ module.exports = {
         new webpack.optimize.ModuleConcatenationPlugin(),
         new BundleAnalyzerPlugin(),
     ],
-    resolve: webpackConfig.resolve,
+    resolve: {
+        extensions: ['.js', '.ts', '.tsx'],
+    },
 };
