@@ -1,17 +1,17 @@
-const webpack = require('webpack');
-const path = require('path');
-const nodeExternals = require('webpack-node-externals');
-const globals = require('../src/config/globals');
-const webpackConfig = require('./base');
+import * as webpack from 'webpack';
+import * as path from 'path';
+import * as nodeExternals from 'webpack-node-externals';
+import globals from '../src/config/globals';
+import baseConfig from './base';
 
-module.exports = {
-    ...webpackConfig,
+const serverConfig: webpack.Configuration = {
+    ...baseConfig,
     name: 'server',
     entry: [
         path.resolve(__dirname, '..', 'src/server'),
     ],
     output: {
-        ...webpackConfig.output,
+        ...baseConfig.output,
         filename: 'server.js',
     },
     plugins: [new webpack.DefinePlugin(globals('server'))],
@@ -19,3 +19,5 @@ module.exports = {
     node: { __dirname: true },
     externals: [nodeExternals({ whitelist: /\.(?!js(\?|$))([^.]+(\?|$))/ })],
 };
+
+module.exports = serverConfig;

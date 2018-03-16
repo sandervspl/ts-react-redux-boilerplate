@@ -1,10 +1,10 @@
-const webpack = require('webpack');
-const path = require('path');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const globals = require('../src/config/globals');
-const webpackConfig = require('./base');
+import * as webpack from 'webpack';
+import * as path from 'path';
+// import BundleAnalyzerPlugin from 'webpack-bundle-analyzer'.BundleAnalyzerPlugin;
+import globals from '../src/config/globals';
+import webpackConfig from './base';
 
-module.exports = {
+const prodConfig: webpack.Configuration = {
     ...webpackConfig,
     name: 'client',
     entry: [
@@ -14,7 +14,7 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin(globals('client')),
         new webpack.optimize.ModuleConcatenationPlugin(),
-        new BundleAnalyzerPlugin(),
+        // new BundleAnalyzerPlugin(),
     ],
     optimization: {
         ...webpackConfig.optimization,
@@ -31,3 +31,5 @@ module.exports = {
         runtimeChunk: true,
     },
 };
+
+module.exports = prodConfig;

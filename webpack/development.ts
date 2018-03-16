@@ -1,10 +1,10 @@
-const webpack = require('webpack');
-const path = require('path');
-const globals = require('../src/config/globals');
-const webpackConfig = require('./base');
+import * as webpack from 'webpack';
+import * as path from 'path';
+import globals from '../src/config/globals';
+import baseConfig from './base';
 
-module.exports = {
-    ...webpackConfig,
+const devConfig: webpack.Configuration = {
+    ...baseConfig,
     name: 'client',
     mode: 'development',
     devtool: 'eval-source-map',
@@ -14,7 +14,7 @@ module.exports = {
         path.resolve(__dirname, '..', 'src/index.tsx'),
     ],
     output: {
-        ...webpackConfig.output,
+        ...baseConfig.output,
         filename: 'bundle.js',
         publicPath: path.resolve(__dirname, '..', '/dist/'),
     },
@@ -25,3 +25,5 @@ module.exports = {
         new webpack.NoEmitOnErrorsPlugin(),
     ],
 };
+
+module.exports = devConfig;

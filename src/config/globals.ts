@@ -1,9 +1,11 @@
+import { port } from './index';
+
 const env = process.env.NODE_ENV || 'development';
 
-module.exports = type => ({
+export default type => ({
     'process.env': {
         NODE_ENV: JSON.stringify(env),
-        PORT: process.env.PORT || 3000,
+        PORT: port,
     },
     __DEV__: env === 'development',
     __PROD__: env === 'production',

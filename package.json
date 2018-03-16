@@ -11,8 +11,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon",
     "build": "NODE_ENV=production run-p clean build:server build:client",
-    "build:client": "webpack --hide-modules --config webpack/production.js",
-    "build:server": "webpack --hide-modules --config webpack/server.js",
+    "build:client": "webpack --hide-modules --config webpack/production.ts",
+    "build:server": "webpack --hide-modules --config webpack/server.ts",
     "start": "node dist/server.js",
     "clean": "rimraf dist/",
     "lint": "eslint src/"

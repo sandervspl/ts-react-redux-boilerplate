@@ -1,9 +1,10 @@
-const path = require('path');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+import * as webpack from 'webpack';
+import * as path from 'path';
+import * as UglifyJSPlugin from 'uglifyjs-webpack-plugin';
 
 const srcPath = p => path.resolve(__dirname, '..', 'src/', p);
 
-module.exports = {
+const baseConfig: webpack.Configuration = {
     mode: 'production',
     devtool: 'cheap-source-map',
     output: {
@@ -98,3 +99,5 @@ module.exports = {
         },
     },
 };
+
+export default baseConfig;
