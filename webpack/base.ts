@@ -55,7 +55,7 @@ const baseConfig: webpack.Configuration = {
                             module: 'commonjs',
                             target: 'esnext',
                         },
-                    }
+                    },
                 }],
             },
             {

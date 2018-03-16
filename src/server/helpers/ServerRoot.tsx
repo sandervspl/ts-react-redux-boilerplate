@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { StyleSheetManager, ThemeProvider } from 'styled-components';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router';
