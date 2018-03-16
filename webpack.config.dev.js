@@ -1,5 +1,5 @@
-const webpack = require('webpack');
 const path = require('path');
+const webpack = require('webpack');
 const globals = require('./src/config/globals');
 
 module.exports = {
@@ -19,9 +19,14 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+            },
+            {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
-                use: ["babel-loader", { loader: "ts-loader" }],
+                loader: 'ts-loader',
             },
             {
                 test: /\.svg$/,
@@ -33,6 +38,7 @@ module.exports = {
             },
             {
                 exclude: [
+                    /\.jsx?$/,
                     /\.tsx?$/,
                     /\.css$/,
                     /\.svg$/,
@@ -50,7 +56,7 @@ module.exports = {
         new webpack.NoEmitOnErrorsPlugin(),
     ],
     resolve: {
-        extensions: ['*', '.js', '.ts', '.tsx'],
+        extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
         alias: {
             app: path.resolve(__dirname, './src/app'),
             common: path.resolve(__dirname, './src/app/components/common'),

@@ -1,6 +1,6 @@
 const webpack = require('webpack');
-const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const webpackConfig = require('./webpack.config');
 const webpackProdConfig = require('./webpack.config.prod');
 const globals = require('./src/config/globals');
 
@@ -13,7 +13,7 @@ module.exports = {
     externals: [nodeExternals({ whitelist: /\.(?!js(\?|$))([^.]+(\?|$))/ })],
     entry: ['./src/server/index.ts'],
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: webpackConfig.output.path,
         filename: 'server.js',
         publicPath: '/',
     },
@@ -25,9 +25,14 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+            },
+            {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
-                use: ["babel-loader", { loader: "ts-loader" }],
+                loader: 'ts-loader',
             },
             {
                 test: /\.svg$/,
@@ -39,6 +44,7 @@ module.exports = {
             },
             {
                 exclude: [
+                    /\.jsx?$/,
                     /\.tsx?$/,
                     /\.css$/,
                     /\.svg$/,
@@ -51,7 +57,5 @@ module.exports = {
         ],
     },
     plugins: [new webpack.DefinePlugin(globals('server'))],
-    resolve: {
-        extensions: ['.js', '.ts', '.tsx'],
-    }
+    resolve: webpackConfig.resolve,
 };
