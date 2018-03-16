@@ -10,7 +10,7 @@ import { theme, globalStyles } from 'app/styles';
 globalStyles();
 
 export default ({ location, sheet }) => (
-    <Provider store={store({ client: false })}>
+    <Provider store={store}>
         <StyleSheetManager sheet={sheet}>
             <ThemeProvider theme={theme}>
                 <StaticRouter location={location} context={{}}>

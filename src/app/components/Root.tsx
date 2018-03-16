@@ -8,7 +8,7 @@ import App from './App';
 import 'app/static/favicon.ico';
 
 const Root: React.StatelessComponent = () => (
-    <Provider store={store({ client: true })}>
+    <Provider store={store}>
         <BrowserRouter>
             <ThemeProvider theme={theme}>
                 <App />
