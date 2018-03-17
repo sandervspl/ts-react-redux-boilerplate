@@ -44,8 +44,7 @@
     "redux-thunk": "^2.2.0",
     "styled-components": "^3.2.1",
     "styled-normalize": "^2.2.1",
-    "svg-react-loader": "^0.4.5",
-    "uglifyjs-webpack-plugin": "^1.2.2"
+    "svg-react-loader": "^0.4.5"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.104",
@@ -77,6 +76,7 @@
     "tslint": "^5.8.0",
     "tslint-config-airbnb": "^5.3.0",
     "typescript": "^2.7.2",
+    "uglifyjs-webpack-plugin": "^1.2.4",
     "url-loader": "^0.6.2",
     "webpack": "^4.1.1",
     "webpack-bundle-analyzer": "^2.11.1",
