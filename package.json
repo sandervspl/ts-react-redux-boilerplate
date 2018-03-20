@@ -9,7 +9,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon",
+    "dev": "NODE_ENV=development ts-node -r tsconfig-paths/register ./src/server/index.tsx",
     "build": "NODE_ENV=production run-p clean build:server build:client",
     "build:client": "webpack --hide-modules --config webpack/client-prod.ts",
     "build:server": "webpack --hide-modules --config webpack/server.ts",
@@ -25,7 +25,10 @@
     "boilerplate",
     "babel",
     "typescript",
-    "styled-components"
+    "styled-components",
+    "server-side",
+    "server side",
+    "ssr"
   ],
   "dependencies": {
     "compression": "^1.7.1",
@@ -69,7 +72,6 @@
     "babel-preset-stage-0": "^6.24.1",
     "file-loader": "^1.1.11",
     "json-loader": "^0.5.7",
-    "nodemon": "^1.17.2",
     "npm-run-all": "^4.1.1",
     "rimraf": "^2.6.2",
     "ts-loader": "^4.0.1",
