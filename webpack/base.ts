@@ -1,15 +1,43 @@
-import * as webpack from 'webpack';
 import * as path from 'path';
+import { omit } from 'lodash';
+const packg = require('../package.json');
+
+// select the vendors you want to include in the vendors chunk
+// omit packages you don't want to include
+const vendors = Object.keys(omit(packg.dependencies, [
+    'compression',
+    'express',
+    'prop-types',
+]));
 
 const srcPath = (p: string) => path.resolve(__dirname, '..', 'src/', p);
 
-const baseConfig: webpack.Configuration = {
+const baseConfig = {
     mode: 'production',
     devtool: 'cheap-source-map',
     output: {
         path: path.resolve(__dirname, '..', 'dist'),
         publicPath: '/',
         filename: '[name].js',
+    },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    name: 'vendors',
+                    test: new RegExp(
+                        vendors.reduce((str, vendor) => `${str}|${vendor}`, '^.*(') + ')$',
+                        'gi',
+                    ),
+                    chunks: 'initial',
+                    enforce: true,
+                },
+            },
+            // Files will invalidate i. e. when more chunks with the same vendors are added.
+            // tslint:disable-next-line:max-line-length
+            // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
+            name: false,
+        },
     },
     module: {
         rules: [

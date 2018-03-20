@@ -3,7 +3,7 @@ import * as path from 'path';
 import globals from '../src/config/globals';
 import baseConfig from './base';
 
-const devConfig: webpack.Configuration = {
+const devConfig = {
     ...baseConfig,
     name: 'client',
     mode: 'development',
@@ -20,6 +20,7 @@ const devConfig: webpack.Configuration = {
         publicPath: path.resolve(__dirname, '..', '/dist/'),
     },
     optimization: {
+        ...baseConfig.optimization,
         noEmitOnErrors: true,
     },
     plugins: [
