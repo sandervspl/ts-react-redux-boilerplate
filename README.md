@@ -1,12 +1,12 @@
-# React Redux Typescript Styled-Components Boilerplate
+# ts-react-ssr-boilerplate
 
 ## Getting Started
 ```
-$ git clone https://github.com/sandervspl/react-redux-typescript-styled-components-boilerplate
+$ git clone https://github.com/sandervspl/ts-react-ssr-boilerplate
 ```
 
 ```
-$ cd react-redux-typescript-styled-components-boilerplate && npm i
+$ cd ts-react-ssr-boilerplate && npm i
 ```
 
 ```
