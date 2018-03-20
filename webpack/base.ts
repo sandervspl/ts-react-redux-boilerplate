@@ -26,12 +26,7 @@ const baseConfig: any = {
             cacheGroups: {
                 commons: {
                     name: 'vendors',
-                    test: new RegExp(
-                        vendors.reduce((str, vendor) => `${str}|${vendor}`, '^.*(') + ')$',
-                        'gi',
-                    ),
                     chunks: 'initial',
-                    enforce: true,
                 },
             },
             // Files will invalidate i. e. when more chunks with the same vendors are added.
