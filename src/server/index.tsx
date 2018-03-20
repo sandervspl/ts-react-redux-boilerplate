@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as express from 'express';
 import { port, SSR } from 'config';
 import { ServerStyleSheet } from 'styled-components';
-import ServerRoot from './helpers/ServerRoot';
 const renderFullPage = require('./helpers/renderFullPage');
 
 const app = express();
@@ -35,6 +34,7 @@ if (process.env.NODE_ENV === 'development') {
     const path = require('path');
     const compress = require('compression');
     const { renderToString } = require('react-dom/server');
+    const ServerRoot = require('./helpers/ServerRoot').default;
 
     app.use(compress());
     app.use(express.static(path.resolve(__dirname, '../../dist')));
