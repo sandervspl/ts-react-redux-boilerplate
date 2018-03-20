@@ -1,5 +1,9 @@
+import * as React from 'react';
 import * as express from 'express';
 import { port, SSR } from 'config';
+import { ServerStyleSheet } from 'styled-components';
+import ServerRoot from './helpers/ServerRoot';
+const renderFullPage = require('./helpers/renderFullPage');
 
 const app = express();
 
@@ -9,7 +13,6 @@ if (process.env.NODE_ENV === 'development') {
     const webpackHotMiddleware = require('webpack-hot-middleware');
     const clientConfig = require('../../webpack/client-dev');
     const serverConfig = require('../../webpack/server');
-    const renderFullPage = require('./helpers/renderFullPage');
 
     const compiler = webpack([clientConfig, serverConfig]);
 
@@ -20,26 +23,35 @@ if (process.env.NODE_ENV === 'development') {
         noInfo: true,
         headers: { 'Access-Control-Allow-Origin': '*' },
         stats: { colors: true },
-        serverSideRender: true,
     }));
 
-    const clientCompiler = compiler.compilers.find((c: any) => c.name === 'client');
+    const clientCompiler = compiler.compilers.find(c => c.name === 'client');
     app.use(webpackHotMiddleware(clientCompiler));
 
     app.get('*', (req, res) => {
-        res.send(renderFullPage({}));
+        res.status(200).send(renderFullPage({}));
     });
 } else {
     const path = require('path');
     const compress = require('compression');
-    const render = require('./helpers/render');
+    const { renderToString } = require('react-dom/server');
 
     app.use(compress());
     app.use(express.static(path.resolve(__dirname, '../../dist')));
-    app.use(render(SSR));
+
+    app.use((req, res) => {
+        const sheet = new ServerStyleSheet();
+        const styleTags = sheet.getStyleTags();
+
+        const html = SSR
+            ? renderToString(<ServerRoot location={req.url} sheet={sheet.instance}/>)
+            : ' ';
+
+        res.status(200).send(renderFullPage({ html, styleTags }));
+    });
 }
 
 app.listen(port, () => {
-    // tslint:disable:no-console
+    // tslint:disable-next-line:no-console
     console.log(`[${process.env.NODE_ENV}] server running on http://localhost:${port}/`);
 });

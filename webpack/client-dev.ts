@@ -8,14 +8,15 @@ const devConfig: webpack.Configuration = {
     name: 'client',
     mode: 'development',
     devtool: 'eval-source-map',
-    entry: [
-        'webpack-hot-middleware/client?reload=true&noInfo=true',
-        'babel-polyfill',
-        path.resolve(__dirname, '..', 'src/index.tsx'),
-    ],
+    entry: {
+        app: [
+            'webpack-hot-middleware/client?reload=true&noInfo=true',
+            'babel-polyfill',
+            path.resolve(__dirname, '..', 'src/index.tsx'),
+        ],
+    },
     output: {
         ...baseConfig.output,
-        filename: 'bundle.js',
         publicPath: path.resolve(__dirname, '..', '/dist/'),
     },
     optimization: {},
