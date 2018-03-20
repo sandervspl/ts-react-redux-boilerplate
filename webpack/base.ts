@@ -1,15 +1,5 @@
 import * as path from 'path';
 import * as webpackMerge from 'webpack-merge';
-import { omit } from 'lodash';
-const packg = require('../package.json');
-
-// select the vendors you want to include in the vendors chunk
-// omit packages you don't want to include
-const vendors = Object.keys(omit(packg.dependencies, [
-    'compression',
-    'express',
-    'prop-types',
-]));
 
 const srcPath = (p: string) => path.resolve(__dirname, '..', 'src/', p);
 
