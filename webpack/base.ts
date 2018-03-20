@@ -1,4 +1,5 @@
 import * as path from 'path';
+import * as webpackMerge from 'webpack-merge';
 import { omit } from 'lodash';
 const packg = require('../package.json');
 
@@ -12,7 +13,7 @@ const vendors = Object.keys(omit(packg.dependencies, [
 
 const srcPath = (p: string) => path.resolve(__dirname, '..', 'src/', p);
 
-const baseConfig = {
+const baseConfig: any = {
     mode: 'production',
     devtool: 'cheap-source-map',
     output: {
@@ -120,3 +121,5 @@ const baseConfig = {
 };
 
 export default baseConfig;
+
+export const merge = (config: object) => webpackMerge(baseConfig, config);

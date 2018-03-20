@@ -1,10 +1,9 @@
 import * as webpack from 'webpack';
 import * as path from 'path';
 import globals from '../src/config/globals';
-import baseConfig from './base';
+import { merge } from './base';
 
-const devConfig = {
-    ...baseConfig,
+const devConfig: any = merge({
     name: 'client',
     mode: 'development',
     devtool: 'eval-source-map',
@@ -16,17 +15,15 @@ const devConfig = {
         ],
     },
     output: {
-        ...baseConfig.output,
         publicPath: path.resolve(__dirname, '..', '/dist/'),
     },
     optimization: {
-        ...baseConfig.optimization,
         noEmitOnErrors: true,
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin(globals('client')),
     ],
-};
+});
 
 module.exports = devConfig;

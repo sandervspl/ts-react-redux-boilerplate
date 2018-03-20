@@ -2,10 +2,9 @@ import * as webpack from 'webpack';
 import * as path from 'path';
 // import BundleAnalyzerPlugin from 'webpack-bundle-analyzer'.BundleAnalyzerPlugin;
 import globals from '../src/config/globals';
-import webpackConfig from './base';
+import { merge } from './base';
 
-const prodConfig = {
-    ...webpackConfig,
+const prodConfig: any = merge({
     name: 'client',
     entry: {
         app: [
@@ -14,7 +13,6 @@ const prodConfig = {
         ],
     },
     optimization: {
-        ...webpackConfig.optimization,
         concatenateModules: true,
         // Keep the runtime chunk seperated to enable long term caching
         // https://twitter.com/wSokra/status/969679223278505985
@@ -24,6 +22,6 @@ const prodConfig = {
         new webpack.DefinePlugin(globals('client')),
         // new BundleAnalyzerPlugin(),
     ],
-};
+});
 
 module.exports = prodConfig;

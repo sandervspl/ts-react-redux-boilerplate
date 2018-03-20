@@ -2,16 +2,14 @@ import * as webpack from 'webpack';
 import * as path from 'path';
 import * as nodeExternals from 'webpack-node-externals';
 import globals from '../src/config/globals';
-import baseConfig from './base';
+import { merge } from './base';
 
-const serverConfig = {
-    ...baseConfig,
+const serverConfig: any = merge({
     name: 'server',
     entry: {
         server: path.resolve(__dirname, '..', 'src/server/index.tsx'),
     },
     target: 'node',
-    optimization: {},
     plugins: [
         new webpack.DefinePlugin(globals('server')),
     ],
@@ -23,6 +21,8 @@ const serverConfig = {
             whitelist: /\.(?!js(\?|$))([^.]+(\?|$))/,
         }),
     ],
-};
+});
+
+serverConfig.optimization = {};
 
 module.exports = serverConfig;
