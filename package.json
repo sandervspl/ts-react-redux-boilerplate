@@ -1,11 +1,11 @@
 {
-  "name": "React-Redux-Boilerplate",
-  "version": "1.4.1",
-  "description": "A starter boilerplate to create comprehensive React apps with Redux and serverside rendering.",
+  "name": "ts-react-ssr-boilerplate",
+  "version": "1.5.0",
+  "description": "A starter boilerplate to create comprehensive React apps with TypeScript, Redux, Styled-Components and server-side rendering.",
   "author": "sandervispoel <contact@sandervispoel.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sandervspl/react-redux-typescript-styled-components-boilerplate"
+    "url": "https://github.com/sandervspl/ts-react-ssr-boilerplate"
   },
   "license": "MIT",
   "scripts": {
