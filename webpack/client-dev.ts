@@ -19,11 +19,12 @@ const devConfig: webpack.Configuration = {
         ...baseConfig.output,
         publicPath: path.resolve(__dirname, '..', '/dist/'),
     },
-    optimization: {},
+    optimization: {
+        noEmitOnErrors: true,
+    },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin(globals('client')),
-        new webpack.NoEmitOnErrorsPlugin(),
     ],
 };
 

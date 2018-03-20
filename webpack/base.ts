@@ -1,7 +1,7 @@
 import * as webpack from 'webpack';
 import * as path from 'path';
 
-const srcPath = p => path.resolve(__dirname, '..', 'src/', p);
+const srcPath = (p: string) => path.resolve(__dirname, '..', 'src/', p);
 
 const baseConfig: webpack.Configuration = {
     mode: 'production',
@@ -28,12 +28,34 @@ const baseConfig: webpack.Configuration = {
             },
             {
                 test: /\.svg$/,
-                use: ['babel-loader', { loader: 'svg-react-loader' }],
+                oneOf: [
+                    {
+                        resource: /external/,
+                        loader: 'url-loader?limit=10000',
+                        query: { limit: 10000 },
+                        oneOf: [],
+                    },
+                    {
+                        loader: 'babel-loader!svg-react-loader',
+                        oneOf: [],
+                    },
+                ],
             },
             {
                 test: /\.(jpe?g|png|gif)$/i,
-                loader: 'url-loader',
-                query: { limit: 10000 },
+                oneOf: [
+                    {
+                        resource: /external/,
+                        loader: 'file-loader',
+                        query: { name: 'static/[name].[ext]' },
+                        oneOf: [],
+                    },
+                    {
+                        loader: 'url-loader',
+                        query: { limit: 10000 },
+                        oneOf: [],
+                    },
+                ],
             },
             {
                 exclude: [
@@ -46,6 +68,7 @@ const baseConfig: webpack.Configuration = {
                 ],
                 loader: 'file-loader',
                 query: { name: 'static/[name].[ext]' },
+                oneOf: [],
             },
         ],
     },

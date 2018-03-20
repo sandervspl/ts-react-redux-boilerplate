@@ -15,7 +15,7 @@ const vendors = Object.keys(omit(packg.dependencies, [
     'prop-types',
 ]));
 
-const prodConfig: webpack.Configuration = {
+const prodConfig = {
     ...webpackConfig,
     name: 'client',
     entry: {
@@ -26,12 +26,9 @@ const prodConfig: webpack.Configuration = {
     },
     plugins: [
         new webpack.DefinePlugin(globals('client')),
-        new webpack.optimize.ModuleConcatenationPlugin(),
         // new BundleAnalyzerPlugin(),
     ],
     optimization: {
-        // Automatically split vendor and commons
-        // https://twitter.com/wSokra/status/969633336732905474
         splitChunks: {
             cacheGroups: {
                 commons: {
@@ -52,6 +49,7 @@ const prodConfig: webpack.Configuration = {
         // Keep the runtime chunk seperated to enable long term caching
         // https://twitter.com/wSokra/status/969679223278505985
         runtimeChunk: true,
+        concatenateModules: true,
     },
     node: {
         fs: 'empty',
