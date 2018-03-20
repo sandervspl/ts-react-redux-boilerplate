@@ -9,7 +9,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon",
+    "dev": "NODE_ENV=development nodemon",
     "build": "NODE_ENV=production run-p clean build:server build:client",
     "build:client": "webpack --hide-modules --config webpack/client-prod.ts",
     "build:server": "webpack --hide-modules --config webpack/server.ts",
@@ -64,7 +64,6 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "cross-env": "^5.1.4",
     "file-loader": "^1.1.11",
     "json-loader": "^0.5.7",
     "nodemon": "^1.17.2",
