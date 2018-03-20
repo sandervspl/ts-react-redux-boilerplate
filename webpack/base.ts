@@ -116,6 +116,7 @@ const baseConfig: any = {
             services: srcPath('app/services'),
             styles: srcPath('app/styles'),
             vectors: srcPath('app/static/vectors'),
+            'styled-components': srcPath('app/services/styled-components.ts'),
         },
     },
 };

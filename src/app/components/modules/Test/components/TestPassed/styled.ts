@@ -1,4 +1,4 @@
-import styled from 'services/styled-components';
+import styled from 'styled-components';
 
 export const Message = styled.div`
     font-size: 18px;
