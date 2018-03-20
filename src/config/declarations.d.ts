@@ -1,6 +1,6 @@
 // global variables
-declare const __DEV__: any;
-declare const __CLIENT__: any;
+declare const __DEV__: boolean;
+declare const __CLIENT__: boolean;
 
 // extend window object
 interface Window {
