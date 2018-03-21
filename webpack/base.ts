@@ -16,6 +16,7 @@ const baseConfig: any = {
             cacheGroups: {
                 commons: {
                     name: 'vendors',
+                    test: /node_modules/,
                     chunks: 'initial',
                 },
             },

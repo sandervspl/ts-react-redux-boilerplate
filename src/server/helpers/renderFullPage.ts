@@ -6,7 +6,7 @@ interface RenderOptions {
 module.exports = ({ html, styleTags }: RenderOptions): string => `
     <!DOCTYPE html>
     <meta charset="utf-8">
-    <title>React Redux Boilerplate</title>
+    <title>ts-react-ssr boilerplate</title>
     <link rel="shortcut icon" href="/static/favicon.ico" />
     ${styleTags || ''}
     ${html ? '<link rel="stylesheet" type="text/html" href="/style.css">' : ''}
@@ -15,5 +15,6 @@ module.exports = ({ html, styleTags }: RenderOptions): string => `
 
     <div id="app">${html || ''}</div>
     <script src="${html ? '' : '/dist'}/vendors.js"></script>
+    <script src="${html ? '' : '/dist'}/runtime~app.js"></script>
     <script src="${html ? '' : '/dist'}/app.js"></script>
 `;
