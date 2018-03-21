@@ -21,7 +21,7 @@ const prodConfig: any = merge({
         new webpack.DefinePlugin(globals('client')),
         // only include html file if server-side render is disabled
         SSR ? () => {} : new HtmlWebpackPlugin({
-            inject: false,
+            inject: true,
             template: path.resolve(__dirname, '..', 'src/index.html'),
             minify: {
                 removeComments: true,
