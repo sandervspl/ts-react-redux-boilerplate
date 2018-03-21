@@ -43,6 +43,7 @@
     "interface-name": false,
     "align": false,
     "import-name": false,
-    "no-angle-bracket-type-assertion": true
+    "no-angle-bracket-type-assertion": true,
+    "trailing-comma": [true, {"multiline": "always", "singleline": "never"}]
   }
 }
