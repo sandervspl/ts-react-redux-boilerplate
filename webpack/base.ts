@@ -35,7 +35,7 @@ const baseConfig: any = {
                     options: {
                         compilerOptions: {
                             module: 'commonjs',
-                            target: 'esnext',
+                            target: 'es2015',
                         },
                     },
                 }],
