@@ -5,6 +5,10 @@ import { AppContainer } from 'react-hot-loader';
 
 import Root from 'components/Root';
 
+if (!global._babelPolyfill) {
+    require('babel-polyfill');
+}
+
 const render = (Element: any) => {
     ReactDOM.hydrate(<Element />, document.getElementById('app'));
 };

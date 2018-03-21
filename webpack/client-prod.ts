@@ -9,10 +9,7 @@ import { SSR } from '../src/config';
 const prodConfig: any = merge({
     name: 'client',
     entry: {
-        app: [
-            'babel-polyfill',
-            path.resolve(__dirname, '..', 'src/index.tsx'),
-        ],
+        app: path.resolve(__dirname, '..', 'src/index.tsx'),
     },
     optimization: {
         concatenateModules: true,

@@ -10,7 +10,6 @@ const devConfig: any = merge({
     entry: {
         app: [
             'webpack-hot-middleware/client?reload=true&noInfo=true',
-            'babel-polyfill',
             path.resolve(__dirname, '..', 'src/index.tsx'),
         ],
     },

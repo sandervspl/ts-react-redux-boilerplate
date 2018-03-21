@@ -7,11 +7,17 @@ interface Window {
     devToolsExtension: Function;
 }
 
-// extend NodeJS module global object
+// extend NodeJS modules
 interface NodeModule {
     hot: {
         accept: (cb: Function) => any;
     };
+}
+
+declare module NodeJS {
+    interface Global {
+        _babelPolyfill: any;
+    }
 }
 
 // files
