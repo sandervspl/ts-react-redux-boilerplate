@@ -1,37 +1,48 @@
 {
-    "defaultSeverity": "error",
-    "extends": "tslint-config-airbnb",
-    "plugins": ["react", "typescript"],
-    "env": {
-      "browser": true,
-      "node": true
-    },
-    "jsRules": {},
-    "rules": {
-        "react/require-default-props": 0,
-        "react/forbid-prop-types": 0,
-        "react/no-children-prop": 0,
-        "react/jsx-indent": ["error", 4],
-        "react/jsx-indent-props": ["error", 4],
-        "react/jsx-filename-extension": 0,
-        "react/prop-types": 0,
-        "consistent-return": 0,
-        "indent": [true, "spaces"],
-        "ter-indent": [true, 4],
-        "max-len": 0,
-        "no-console": [true, "log", "error"],
-        "no-nested-ternary": 0,
-        "no-param-reassign": 0,
-        "no-underscore-dangle": 0,
-        "no-undef": 0,
-        "object-curly-newline": 0,
-        "variable-name": false,
-        "object-shorthand-properties-first": false,
-        "max-line-length": [true, 120],
-        "interface-name": false,
-        "align": false,
-        "import-name": false,
-        "no-angle-bracket-type-assertion": true
-    },
-    "rulesDirectory": []
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint-config-airbnb",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
+  "plugins": [
+    "react",
+    "typescript"
+  ],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "react/require-default-props": 0,
+    "react/forbid-prop-types": 0,
+    "react/no-children-prop": 0,
+    "react/jsx-indent": ["error", 4],
+    "react/jsx-indent-props": ["error", 4],
+    "react/jsx-filename-extension": 0,
+    "react/prop-types": 0,
+    "jsx-alignment": true,
+    "jsx-no-bind": true,
+    "jsx-no-string-ref": true,
+    "jsx-self-close": true,
+    "jsx-wrap-multiline": true,
+    "consistent-return": 0,
+    "indent": [true, "spaces"],
+    "ter-indent": [true, 4],
+    "max-len": 120,
+    "no-console": [true, "log", "error"],
+    "no-nested-ternary": 0,
+    "no-param-reassign": 0,
+    "no-underscore-dangle": 0,
+    "no-undef": true,
+    "no-unused-variable": true,
+    "object-curly-newline": 0,
+    "variable-name": false,
+    "object-shorthand-properties-first": false,
+    "max-line-length": [true, 120],
+    "interface-name": false,
+    "align": false,
+    "import-name": false,
+    "no-angle-bracket-type-assertion": true
+  }
 }
