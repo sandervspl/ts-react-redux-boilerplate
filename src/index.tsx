@@ -2,6 +2,7 @@ import 'react-hot-loader/patch';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import registerServiceWorker from './serviceWorker';
 
 import Root from 'components/Root';
 
@@ -25,3 +26,4 @@ if (__DEV__ && module.hot) {
 }
 
 render(Root);
+registerServiceWorker();
