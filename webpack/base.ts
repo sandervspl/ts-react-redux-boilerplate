@@ -62,7 +62,10 @@ const baseConfig: any = {
                     },
                     {
                         loader: 'url-loader',
-                        query: { limit: 10000 },
+                        query: {
+                            limit: 10000,
+                            name: 'static/[name].[ext]',
+                        },
                     },
                 ],
             },
