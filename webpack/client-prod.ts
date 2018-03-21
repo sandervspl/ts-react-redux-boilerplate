@@ -11,12 +11,6 @@ const prodConfig: any = merge({
     entry: {
         app: path.resolve(__dirname, '..', 'src/index.tsx'),
     },
-    optimization: {
-        concatenateModules: true,
-        // Keep the runtime chunk seperated to enable long term caching
-        // https://twitter.com/wSokra/status/969679223278505985
-        runtimeChunk: true,
-    },
     plugins: [
         new webpack.DefinePlugin(globals('client')),
         // only include html file if server-side render is disabled

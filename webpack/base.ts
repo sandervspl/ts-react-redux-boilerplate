@@ -24,6 +24,9 @@ const baseConfig: any = {
             // medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
             name: false,
         },
+        // Keep the runtime chunk seperated to enable long term caching
+        // https://twitter.com/wSokra/status/969679223278505985
+        runtimeChunk: true,
     },
     module: {
         rules: [

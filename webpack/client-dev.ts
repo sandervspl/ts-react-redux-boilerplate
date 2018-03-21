@@ -16,9 +16,6 @@ const devConfig: any = merge({
     output: {
         publicPath: path.resolve(__dirname, '..', '/dist/'),
     },
-    optimization: {
-        noEmitOnErrors: true,
-    },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin(globals('client')),
