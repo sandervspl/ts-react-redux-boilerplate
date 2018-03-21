@@ -20,8 +20,7 @@ const baseConfig: any = {
                 },
             },
             // Files will invalidate i. e. when more chunks with the same vendors are added.
-            // tslint:disable-next-line:max-line-length
-            // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
+            // medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
             name: false,
         },
     },
