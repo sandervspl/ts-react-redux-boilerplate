@@ -7,6 +7,7 @@ module.exports = ({ html, styleTags }: RenderOptions): string => `
     <!DOCTYPE html>
     <meta charset="utf-8">
     <title>ts-react-ssr boilerplate</title>
+    <link rel="manifest" href="manifest.json">
     <link rel="shortcut icon" href="/static/favicon.ico" />
     ${styleTags || ''}
     ${html ? '<link rel="stylesheet" type="text/html" href="/style.css">' : ''}
