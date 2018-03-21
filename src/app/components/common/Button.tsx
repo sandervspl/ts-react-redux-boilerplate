@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { propChildrenAll } from 'services/types';
+import { PropChildrenAll } from 'services/types';
 
 const Button = styled.button`
     background: ${props => props.theme.color.primary};
@@ -16,7 +16,7 @@ const Button = styled.button`
 
 // PropTypes as interface
 export interface ButtonProps {
-    children?: propChildrenAll;
+    children?: PropChildrenAll;
     disabled?: boolean;
     onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
     type?: string;
