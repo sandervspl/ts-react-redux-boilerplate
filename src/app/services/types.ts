@@ -5,6 +5,8 @@ export type PropChildrenText = string;
 export type PropChildrenNode = React.ReactChild | React.ReactChildren | React.ReactNode;
 export type PropChildrenAll = PropChildrenText | PropChildrenNode;
 
+export type ReactComponent = React.ComponentClass | React.StatelessComponent;
+
 export interface OptionsBody {
     headers: { [key: string]: string };
     method: string;
