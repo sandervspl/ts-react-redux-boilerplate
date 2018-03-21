@@ -80,6 +80,7 @@ const baseConfig: any = {
                     /\.svg$/,
                     /\.(jpe?g|png|gif)$/i,
                     /\.json$/,
+                    /\.html/,
                 ],
                 loader: 'file-loader',
                 query: { name: 'static/[name].[ext]' },
@@ -108,4 +109,4 @@ const baseConfig: any = {
 
 export default baseConfig;
 
-export const merge = (config: object) => webpackMerge(baseConfig, config);
+export const merge = (...config) => webpackMerge(baseConfig, ...config);
