@@ -83,3 +83,6 @@ const Button = styled.button`
     background-color: ${props => props.theme.color.white};
 `
 ```
+
+## Server-side Rendering
+Server-side Rendering is enabled by default. This can be disabled by changing `SSR = true` to `false` in `src/config/index.ts`. This will generate an HTML file and inject all chunks.
