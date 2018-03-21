@@ -45,7 +45,10 @@ const baseConfig: any = {
                     {
                         resource: /external/,
                         loader: 'url-loader',
-                        query: { limit: 10000 },
+                        query: {
+                            limit: 10000,
+                            name: 'static/[name].[ext]',
+                        },
                     },
                     {
                         loader: ['babel-loader', { loader: 'svg-react-loader' }],
