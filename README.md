@@ -87,6 +87,9 @@ const Button = styled.button`
 ## Server-side Rendering
 Server-side Rendering is enabled by default. This can be disabled by changing `SSR = true` to `false` in `src/config/index.ts`. This will generate an HTML file and inject all chunks.
 
+## Bash scripts
+For the best development experience, I recommend adding the following scripts to your `.bashrc` file.
+
 ### Create new Duck module
 ```bash
 newduck() {
