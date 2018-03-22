@@ -86,3 +86,49 @@ const Button = styled.button`
 
 ## Server-side Rendering
 Server-side Rendering is enabled by default. This can be disabled by changing `SSR = true` to `false` in `src/config/index.ts`. This will generate an HTML file and inject all chunks.
+
+### Create new Duck module
+```bash
+newduck() {
+    D="src/app/ducks/modules/$1";
+    mkdir -p $D || return;
+    touch "$D/index.ts" "$D/types.ts";
+}
+```
+Usage:
+```
+$ newduck user
+```
+This will create a new folder in `app/ducks/modules` called User with an `index.ts` and `types.ts` file.
+Don't forget to add this new module to `ducks/index.ts`.
+
+### Create new common component
+```bash
+newcommon() {
+    FILE="$1.ts";
+    P="src/app/components/common/$FILE";
+    touch $P;
+    printf "import styled from 'styled-components'\n\n" >> $P;
+}
+```
+Usage:
+```
+$ newcommon Button
+```
+This will create a new file in `app/components/common` with `import styled from 'styled-components` pre-written.
+
+### Create a new module component
+```bash
+newmodule() {
+    M="src/app/components/modules/$1";
+    mkdir -p $M || return;
+    mkdir -p "$M/components" || return;
+    touch "$M/index.tsx" "$M/styled.ts" "$M/types.ts";
+    printf "import styled from 'styled-components';\n\n" >> "$M/styled.ts";
+}
+```
+Usage:
+```
+$ newmodule Homepage
+```
+This will create a new folder in `app/components/modules` with an `index.tsx`, `styled.ts` and `types.ts` file.
