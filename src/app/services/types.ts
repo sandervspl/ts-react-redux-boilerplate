@@ -7,15 +7,9 @@ export type PropChildrenAll = PropChildrenText | PropChildrenNode;
 
 export type ReactComponent = React.ComponentClass | React.StatelessComponent;
 
-export interface OptionsBody {
-    headers: { [key: string]: string };
-    method: string;
-    body?: string;
-}
-
 export interface RequestOptions {
     path: string;
-    options: OptionsBody;
+    options: RequestInit;
     handle401: boolean;
 }
 
