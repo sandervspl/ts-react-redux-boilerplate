@@ -33,7 +33,13 @@ const baseConfig: any = {
             {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
-                use: ['babel-loader', {
+                use: [{
+                    loader: 'babel-loader',
+                    options: {
+                        babelrc: true,
+                        plugins: ['react-hot-loader/babel'],
+                    },
+                }, {
                     loader: 'ts-loader',
                     options: {
                         compilerOptions: {
