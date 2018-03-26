@@ -5,7 +5,7 @@ import { install } from 'ducks/modules/test';
 
 import { Button } from 'components/common';
 import { LogoIconWrapper, Section } from './styled';
-import TestPassed from './components/TestPassed';
+import { TestPassed } from './components';
 
 import { HomeProps } from './types';
 import { ReduxState } from 'app/ducks';
@@ -16,9 +16,7 @@ const Test: React.StatelessComponent<HomeProps> = (props: HomeProps) => (
         {props.test.passed ? (
             <TestPassed />
         ) : (
-            <Button onClick={props.install}>
-                {props.test.loading ? 'Installing ...' : 'Test installation'}
-            </Button>
+            <Button onClick={props.install}>{props.test.loading ? 'Installing ...' : 'Test installation'}</Button>
         )}
     </Section>
 );

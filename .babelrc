@@ -6,12 +6,9 @@
     ],
     "plugins": [
         "lodash",
-        [
-            "babel-plugin-styled-components",
-            {
-                "ssr": true
-            }
-        ]
+        ["babel-plugin-styled-components", {
+            "ssr": true
+        }]
     ],
     "env": {
         "production": {
