@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { hot } from 'react-hot-loader';
 import Test from './modules/Test';
 
 const App: React.StatelessComponent = () => (
@@ -10,4 +11,4 @@ const App: React.StatelessComponent = () => (
     </main>
 );
 
-export default App;
+export default hot(module)(App);
