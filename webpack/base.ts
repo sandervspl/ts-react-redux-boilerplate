@@ -40,7 +40,7 @@ const baseConfig: any = {
                         plugins: ['react-hot-loader/babel'],
                     },
                 }, {
-                    loader: 'ts-loader',
+                    loader: 'awesome-typescript-loader',
                     options: {
                         compilerOptions: {
                             module: 'commonjs',

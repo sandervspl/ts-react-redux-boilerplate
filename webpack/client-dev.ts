@@ -1,5 +1,6 @@
 import * as webpack from 'webpack';
 import * as path from 'path';
+import { CheckerPlugin } from 'awesome-typescript-loader';
 import globals from '../src/config/globals';
 import { merge } from './base';
 
@@ -17,6 +18,7 @@ const devConfig: any = merge({
         publicPath: path.resolve(__dirname, '..', '/dist/'),
     },
     plugins: [
+        new CheckerPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin(globals('client')),
     ],
