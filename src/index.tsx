@@ -7,7 +7,7 @@ import Root from 'components/Root';
 import { SSR } from 'config/index';
 
 if (!global._babelPolyfill) {
-    require('babel-polyfill');
+    require('@babel/polyfill');
 }
 
 const app = document.getElementById('app');

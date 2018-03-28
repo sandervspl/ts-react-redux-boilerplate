@@ -1,8 +1,9 @@
 {
     "presets": [
-        "env",
-        "react",
-        "stage-0"
+        "@babel/env",
+        "@babel/typescript",
+        "@babel/react",
+        "@babel/stage-0"
     ],
     "plugins": [
         "lodash",
