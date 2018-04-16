@@ -1,21 +1,29 @@
 import * as React from 'react';
-import styled, { withProps } from 'styled-components';
+import styled, { Theme } from 'styled-components';
 import { PropChildrenAll } from 'services/types';
 
-const Button = withProps<ButtonProps, HTMLButtonElement>(styled.button)`
-    background: ${({ theme }) => theme.color.primary};
+const Button: React.StatelessComponent<ButtonProps> = props => (
+    <button {...props}>
+        {props.children}
+    </button>
+);
+
+const ButtonStyled = styled(Button)`
+    background: ${props => props.theme.color.primary};
     padding: 10px 20px;
     border: none;
-    color: ${({ theme }) => theme.color.white};
+    color: ${props => props.theme.color.white};
     font-size: 16px;
     outline: none;
     border-radius: 5px;
     cursor: pointer;
-    font-family: ${({ theme }) => theme.font.futura};
+    font-family: ${props => props.theme.font.futura};
 `;
 
 // PropTypes as interface
 export interface ButtonProps {
+    theme?: Theme;
+    className?: string;
     children?: PropChildrenAll;
     disabled?: boolean;
     onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -33,4 +41,4 @@ const defaultProps: ButtonProps = {
 // apply default props to Button
 Button.defaultProps = defaultProps;
 
-export default Button;
+export default ButtonStyled;
