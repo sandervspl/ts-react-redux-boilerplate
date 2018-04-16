@@ -1,6 +1,6 @@
 {
   "name": "ts-react-ssr-boilerplate",
-  "version": "1.5.0",
+  "version": "2.0.1",
   "description": "A starter boilerplate to create comprehensive React apps with TypeScript, Redux, Styled-Components and server-side rendering.",
   "author": "sandervispoel <contact@sandervispoel.com>",
   "repository": {
