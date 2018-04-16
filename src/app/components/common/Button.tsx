@@ -1,14 +1,14 @@
 import * as React from 'react';
-import styled, { Theme } from 'styled-components';
+import styled, { BaseStyled } from 'styled-components';
 import { PropChildrenAll } from 'services/types';
 
-const Button: React.StatelessComponent<ButtonProps> = props => (
+const ButtonBase: React.StatelessComponent<ButtonProps> = props => (
     <button {...props}>
         {props.children}
     </button>
 );
 
-const ButtonStyled = styled(Button)`
+const Button = styled(ButtonBase)`
     background: ${props => props.theme.color.primary};
     padding: 10px 20px;
     border: none;
@@ -21,9 +21,7 @@ const ButtonStyled = styled(Button)`
 `;
 
 // PropTypes as interface
-export interface ButtonProps {
-    theme?: Theme;
-    className?: string;
+export interface ButtonProps extends BaseStyled {
     children?: PropChildrenAll;
     disabled?: boolean;
     onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -39,6 +37,6 @@ const defaultProps: ButtonProps = {
 };
 
 // apply default props to Button
-Button.defaultProps = defaultProps;
+ButtonBase.defaultProps = defaultProps;
 
-export default ButtonStyled;
+export default Button;
