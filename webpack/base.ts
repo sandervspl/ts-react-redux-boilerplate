@@ -106,7 +106,6 @@ const baseConfig: any = {
   resolve: {
     extensions: ['*', '.js', '.ts', '.tsx'],
     alias: {
-      src: srcPath(''),
       app: srcPath('app'),
       common: srcPath('app/components/common'),
       components: srcPath('app/components'),
