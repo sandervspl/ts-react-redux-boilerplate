@@ -3,9 +3,9 @@ import styled, { BaseStyled } from 'styled-components';
 import { PropChildrenAll } from 'services/types';
 
 const ButtonBase: React.StatelessComponent<ButtonProps> = props => (
-    <button {...props}>
-        {props.children}
-    </button>
+  <button {...props}>
+    {props.children}
+  </button>
 );
 
 const Button = styled(ButtonBase)`
@@ -22,18 +22,18 @@ const Button = styled(ButtonBase)`
 
 // PropTypes as interface
 export interface ButtonProps extends BaseStyled {
-    children?: PropChildrenAll;
-    disabled?: boolean;
-    onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
-    type?: string;
+  children?: PropChildrenAll;
+  disabled?: boolean;
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  type?: string;
 }
 
 // default props with interface as blueprint for this object
 const defaultProps: ButtonProps = {
-    children: null,
-    disabled: false,
-    onClick: () => {},
-    type: 'button',
+  children: null,
+  disabled: false,
+  onClick: () => {},
+  type: 'button',
 };
 
 // apply default props to Button

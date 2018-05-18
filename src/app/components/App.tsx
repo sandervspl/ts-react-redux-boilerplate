@@ -4,11 +4,11 @@ import { hot } from 'react-hot-loader';
 import { Test } from './modules';
 
 const App: React.StatelessComponent = () => (
-    <main>
-        <Switch>
-            <Route path="/" component={Test} />
-        </Switch>
-    </main>
+  <main>
+    <Switch>
+      <Route path="/" component={Test}/>
+    </Switch>
+  </main>
 );
 
 export default hot(module)(App);

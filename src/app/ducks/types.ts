@@ -10,14 +10,14 @@ export type Thunk = (dispatch: Dispatch<ReduxState>, getState: () => ReduxState,
 
 // initial state
 export interface ReducerState {
-    error?: boolean;
-    loading?: boolean;
+  error?: boolean;
+  loading?: boolean;
 }
 
 // default action
 export interface Action {
-    type: string;
-    payload?: any;
-    error?: boolean;
-    meta?: any;
+  type: string;
+  payload?: any;
+  error?: boolean;
+  meta?: any;
 }

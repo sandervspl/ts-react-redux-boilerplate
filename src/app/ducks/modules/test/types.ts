@@ -1,17 +1,17 @@
 import { Action, ReducerState, Thunk } from 'ducks/types';
 
 export interface TestStateMap extends ReducerState {
-    passed?: boolean;
+  passed?: boolean;
 }
 
 export interface TestState {
-    test: TestStateMap;
+  test: TestStateMap;
 }
 
 export interface TestAction extends Action {
-    payload: {
-        passed: boolean;
-    };
+  payload: {
+    passed: boolean;
+  };
 }
 
 export type InstallAction = () => Thunk;

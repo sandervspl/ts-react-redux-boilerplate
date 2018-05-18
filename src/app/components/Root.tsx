@@ -10,13 +10,13 @@ import 'app/static/favicon.ico';
 globalStyles();
 
 const Root: React.StatelessComponent = () => (
-    <Provider store={store}>
-        <BrowserRouter>
-            <ThemeProvider theme={theme}>
-                <App />
-            </ThemeProvider>
-        </BrowserRouter>
-    </Provider>
+  <Provider store={store}>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <App/>
+      </ThemeProvider>
+    </BrowserRouter>
+  </Provider>
 );
 
 export default Root;

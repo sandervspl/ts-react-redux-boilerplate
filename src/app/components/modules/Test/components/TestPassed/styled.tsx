@@ -1,10 +1,10 @@
 import * as React from 'react';
-import styled, { BaseStyled } from "styled-components";
+import styled, { BaseStyled } from 'styled-components';
 
 const MessageBase: React.StatelessComponent<BaseStyled> = props => (
-    <div {...props}>
-        {props.children}
-    </div>
+  <div {...props}>
+    {props.children}
+  </div>
 );
 export const Message = styled(MessageBase)`
     font-size: 18px;

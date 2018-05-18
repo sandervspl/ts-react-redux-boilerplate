@@ -11,18 +11,18 @@ import { HomeProps } from './types';
 import { ReduxState } from 'app/ducks';
 
 const Test: React.StatelessComponent<HomeProps> = (props: HomeProps) => (
-    <Section>
-        <LogoIconWrapper />
-        {props.test.passed ? (
-            <TestPassed />
-        ) : (
-            <Button onClick={props.install}>{props.test.loading ? 'Installing ...' : 'Test installation'}</Button>
-        )}
-    </Section>
+  <Section>
+    <LogoIconWrapper/>
+    {props.test.passed ? (
+      <TestPassed/>
+    ) : (
+      <Button onClick={props.install}>{props.test.loading ? 'Installing ...' : 'Test installation'}</Button>
+    )}
+  </Section>
 );
 
 const mapStateToProps = (store: ReduxState) => ({
-    test: store.test,
+  test: store.test,
 });
 
 export default connect(mapStateToProps, { install })(Test);

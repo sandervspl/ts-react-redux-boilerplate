@@ -1,15 +1,15 @@
 export interface Colors {
-    black: string;
-    white: string;
-    primary: string;
-    text: string;
+  black: string;
+  white: string;
+  primary: string;
+  text: string;
 }
 
 export interface Fonts {
-    futura: string;
+  futura: string;
 }
 
 export interface Theme {
-    color: Colors;
-    font: Fonts;
+  color: Colors;
+  font: Fonts;
 }

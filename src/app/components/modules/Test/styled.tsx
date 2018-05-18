@@ -3,9 +3,9 @@ import styled, { BaseStyled } from 'styled-components';
 import LogoIcon from 'vectors/logo.svg';
 
 const SectionBase: React.StatelessComponent<BaseStyled> = props => (
-    <section {...props}>
-        {props.children}
-    </section>
+  <section {...props}>
+    {props.children}
+  </section>
 );
 export const Section = styled(SectionBase)`
     text-align: center;
