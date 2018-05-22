@@ -1,5 +1,5 @@
 import * as qs from 'qs';
-import { RequestOptions, GenerateOptions } from './types';
+import { RequestOptions, GenerateOptions, ApiHelper } from './types';
 
 const env = process.env.NODE_ENV || 'development';
 const API_ENDPOINT = {
@@ -50,13 +50,15 @@ const generateOptions = ({ method, path, withAuth = false, query, body }: Genera
   handle401: withAuth,
 });
 
-export const get = ({ path, query, withAuth }: GenerateOptions) =>
-  request(generateOptions({ method: 'GET', path, query, withAuth }));
-export const del = ({ path, query, withAuth }: GenerateOptions) =>
-  request(generateOptions({ method: 'DELETE', path, query, withAuth }));
-export const post = ({ path, body, withAuth }: GenerateOptions) =>
-  request(generateOptions({ method: 'POST', path, body, withAuth }));
-export const put = ({ path, body, withAuth }: GenerateOptions) =>
-  request(generateOptions({ method: 'PUT', path, body, withAuth }));
-export const patch = ({ path, body, withAuth }: GenerateOptions) =>
-  request(generateOptions({ method: 'PATCH', path, body, withAuth }));
+export const api: ApiHelper = {
+  get: ({ path, query, withAuth }: GenerateOptions) =>
+    request(generateOptions({ method: 'GET', path, query, withAuth })),
+  del: ({ path, query, withAuth }: GenerateOptions) =>
+    request(generateOptions({ method: 'DELETE', path, query, withAuth })),
+  post: ({ path, body, withAuth }: GenerateOptions) =>
+    request(generateOptions({ method: 'POST', path, body, withAuth })),
+  put: ({ path, body, withAuth }: GenerateOptions) =>
+    request(generateOptions({ method: 'PUT', path, body, withAuth })),
+  patch: ({ path, body, withAuth }: GenerateOptions) =>
+    request(generateOptions({ method: 'PATCH', path, body, withAuth })),
+};

@@ -1,6 +1,6 @@
 import { combineReducers, createStore, applyMiddleware, compose, GenericStoreEnhancer } from 'redux';
 import thunk from 'redux-thunk';
-import * as api from './services/apiHelper';
+import { api } from './services';
 import { appReducers, ReduxState } from './ducks';
 
 let middleware = applyMiddleware(thunk.withExtraArgument(api));
