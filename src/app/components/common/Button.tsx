@@ -1,7 +1,8 @@
 import * as React from 'react';
 import styled, { BaseStyled } from 'styled-components';
+import { StyledComponent } from 'app/services';
 
-const Button = styled.button`
+const Button = styled(StyledComponent<ButtonProps>('button'))`
     background: ${props => props.theme.color.primary};
     padding: 10px 20px;
     border: none;
@@ -14,7 +15,7 @@ const Button = styled.button`
 `;
 
 // PropTypes as interface
-export interface ButtonProps extends BaseStyled {}
+export interface ButtonProps extends BaseStyled, React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
 // default props with interface as blueprint for this object
 const defaultProps: ButtonProps = {};
