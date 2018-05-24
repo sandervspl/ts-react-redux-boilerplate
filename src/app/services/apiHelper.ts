@@ -1,5 +1,5 @@
+import * as i from 'app/interfaces';
 import * as qs from 'qs';
-import { RequestOptions, GenerateOptions, ApiHelper } from './types';
 
 const env = process.env.NODE_ENV || 'development';
 const API_ENDPOINT = {
@@ -7,7 +7,7 @@ const API_ENDPOINT = {
   development: '',
 }[env];
 
-const request = ({ path, options, handle401 }: RequestOptions): Promise<any> => {
+const request = ({ path, options, handle401 }: i.RequestOptions): Promise<any> => {
   return new Promise((resolve, reject) => {
     fetch(path, options)
       .then((response) => {
@@ -37,7 +37,7 @@ const request = ({ path, options, handle401 }: RequestOptions): Promise<any> => 
   });
 };
 
-const generateOptions = ({ method, path, withAuth = false, query, body }: GenerateOptions): RequestOptions => ({
+const generateOptions = ({ method, path, withAuth = false, query, body }: i.GenerateOptions): i.RequestOptions => ({
   path: `${API_ENDPOINT}${path}${query ? '?' : ''}${qs.stringify(query || {})}`,
   options: {
     headers: {
@@ -50,15 +50,15 @@ const generateOptions = ({ method, path, withAuth = false, query, body }: Genera
   handle401: withAuth,
 });
 
-export const api: ApiHelper = {
-  get: ({ path, query, withAuth }: GenerateOptions) =>
+export const api: i.ApiHelper = {
+  get: ({ path, query, withAuth }: i.GenerateOptions) =>
     request(generateOptions({ method: 'GET', path, query, withAuth })),
-  del: ({ path, query, withAuth }: GenerateOptions) =>
+  del: ({ path, query, withAuth }: i.GenerateOptions) =>
     request(generateOptions({ method: 'DELETE', path, query, withAuth })),
-  post: ({ path, body, withAuth }: GenerateOptions) =>
+  post: ({ path, body, withAuth }: i.GenerateOptions) =>
     request(generateOptions({ method: 'POST', path, body, withAuth })),
-  put: ({ path, body, withAuth }: GenerateOptions) =>
+  put: ({ path, body, withAuth }: i.GenerateOptions) =>
     request(generateOptions({ method: 'PUT', path, body, withAuth })),
-  patch: ({ path, body, withAuth }: GenerateOptions) =>
+  patch: ({ path, body, withAuth }: i.GenerateOptions) =>
     request(generateOptions({ method: 'PATCH', path, body, withAuth })),
 };

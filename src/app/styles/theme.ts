@@ -1,6 +1,6 @@
-import { Theme } from './types';
+import * as i from 'app/interfaces';
 
-const theme: Theme = {
+const theme: i.Theme = {
   color: {
     black: '#000000',
     white: '#ffffff',

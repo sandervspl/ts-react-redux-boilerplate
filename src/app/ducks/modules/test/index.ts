@@ -1,20 +1,17 @@
+import * as i from 'app/interfaces';
 import { createAction } from 'app/services';
-import { Thunk } from 'ducks/types';
-import { Dispatch } from 'redux';
-import { ReduxState } from 'app/ducks';
-import { TestStateMap, TestAction, InstallAction } from './types';
 
 const LOAD = 'test/load';
 const SUCCESS = 'test/success';
 const FAILED = 'test/failed';
 
-const initialState: TestStateMap = {
+const initialState: i.TestStateMap = {
   error: false,
   loading: false,
   passed: false,
 };
 
-export const reducer = (state: TestStateMap = initialState, action: TestAction): TestStateMap => {
+export const reducer = (state: i.TestStateMap = initialState, action: i.TestAction): i.TestStateMap => {
   switch (action.type) {
   case LOAD:
     return {
@@ -47,8 +44,8 @@ export const success = createAction(SUCCESS);
 export const failed = createAction(FAILED);
 
 // async actions
-export const install: InstallAction = (): Thunk => {
-  return (dispatch: Dispatch<ReduxState>, getState: () => ReduxState, api): Promise<void> => {
+export const install: i.InstallAction = (): i.Thunk => {
+  return (dispatch: i.Dispatch<i.ReduxState>, getState: () => i.ReduxState, api): Promise<void> => {
     dispatch(load());
 
     setTimeout(() => {

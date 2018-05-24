@@ -1,12 +1,10 @@
-import { Dispatch } from 'react-redux';
-import { ReduxState } from 'app/ducks';
-import { ApiHelper } from 'services/types';
+import * as i from 'app/interfaces';
 
-export type Dispatcher = () => (dispatch: Dispatch<ReduxState>) => void;
+export type Dispatcher = () => (dispatch: i.Dispatch<i.ReduxState>) => void;
 
 export type ActionCreator = (payload?: any, meta?: any) => Action;
 
-export type Thunk = (dispatch: Dispatch<ReduxState>, getState: () => ReduxState, api: ApiHelper) => void;
+export type Thunk = (dispatch: i.Dispatch<i.ReduxState>, getState: () => i.ReduxState, api: i.ApiHelper) => void;
 
 // initial state
 export interface ReducerState {

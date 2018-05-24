@@ -1,6 +1,6 @@
-import { ActionCreator, Action } from 'ducks/types';
+import * as i from 'app/interfaces';
 
-export default (type: string): ActionCreator => (payload?: any, meta?: any): Action => ({
+export default (type: string): i.ActionCreator => (payload?: any, meta?: any): i.Action => ({
   type,
   payload,
   error: payload instanceof Error,

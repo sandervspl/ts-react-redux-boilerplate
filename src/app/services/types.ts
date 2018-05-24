@@ -1,4 +1,4 @@
-// prop children types
+import * as i from 'app/interfaces';
 import * as React from 'react';
 
 export type PropChildrenText = string;
@@ -27,4 +27,9 @@ export interface ApiHelper {
   post: (options: GenerateOptions) => Promise<any>;
   put: (options: GenerateOptions) => Promise<any>;
   patch: (options: GenerateOptions) => Promise<any>;
+}
+
+export interface BaseStyled {
+  theme?: i.Theme;
+  className?: string;
 }

@@ -1,6 +1,6 @@
-import { Action, ReducerState, Thunk } from 'ducks/types';
+import * as i from 'app/interfaces';
 
-export interface TestStateMap extends ReducerState {
+export interface TestStateMap extends i.ReducerState {
   passed?: boolean;
 }
 
@@ -8,10 +8,10 @@ export interface TestState {
   test: TestStateMap;
 }
 
-export interface TestAction extends Action {
+export interface TestAction extends i.Action {
   payload: {
     passed: boolean;
   };
 }
 
-export type InstallAction = () => Thunk;
+export type InstallAction = () => i.Thunk;

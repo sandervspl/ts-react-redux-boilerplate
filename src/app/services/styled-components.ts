@@ -1,5 +1,5 @@
+import * as i from 'app/interfaces';
 import * as styledComponents from '../../../node_modules/styled-components';
-import { Theme } from 'styles/types';
 
 const {
   ServerStyleSheet,
@@ -12,12 +12,7 @@ const {
   injectGlobal,
   keyframes,
   ThemeProvider,
-} = styledComponents as styledComponents.ThemedStyledComponentsModule<Theme>;
+} = styledComponents as styledComponents.ThemedStyledComponentsModule<i.Theme>;
 
-interface BaseStyled {
-  theme?: Theme;
-  className?: string;
-}
-
-export { css, injectGlobal, keyframes, ThemeProvider, ServerStyleSheet, StyleSheetManager, Theme, BaseStyled };
+export { css, injectGlobal, keyframes, ThemeProvider, ServerStyleSheet, StyleSheetManager };
 export default styled;
