@@ -1,8 +1,9 @@
+import * as i from 'app/interfaces';
 import * as React from 'react';
-import styled, { BaseStyled } from 'styled-components';
+import styled from 'styled-components';
 import LogoIcon from 'vectors/logo.svg';
 
-const SectionBase: React.StatelessComponent<BaseStyled> = props => (
+const SectionBase: React.StatelessComponent<i.BaseStyled> = props => (
   <section {...props}>
     {props.children}
   </section>
@@ -12,7 +13,7 @@ export const Section = styled(SectionBase)`
 `;
 
 // Extend LogoIcon component with styling
-const LogoIconWrapperBase: React.StatelessComponent<BaseStyled> = props => <LogoIcon {...props} />;
+const LogoIconWrapperBase: React.StatelessComponent<i.BaseStyled> = props => <LogoIcon {...props} />;
 export const LogoIconWrapper = styled(LogoIconWrapperBase)`
     width: 200px;
     display: block;
