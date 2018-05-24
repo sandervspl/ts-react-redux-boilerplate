@@ -1,4 +1,3 @@
-export { History } from 'history';
 export { Dispatch } from 'react-redux';
 
 export * from 'services/types';
