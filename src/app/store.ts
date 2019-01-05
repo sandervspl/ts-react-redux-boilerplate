@@ -1,17 +1,19 @@
-import { combineReducers, createStore, applyMiddleware, compose, GenericStoreEnhancer } from 'redux';
+import * as i from 'types';
+import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { api } from './services';
-import { appReducers, ReduxState } from './ducks';
+import { api } from '@services';
+import { appReducers } from './ducks';
 
 let middleware = applyMiddleware(thunk.withExtraArgument(api));
-const reducers = combineReducers<ReduxState>(appReducers);
+const reducers = combineReducers<i.ReduxState>(appReducers);
 
-if (__CLIENT__ && __DEV__) {
-  const devTools = window.devToolsExtension;
-
-  if (process.env.NODE_ENV === 'development' && typeof devTools === 'function') {
-    middleware = compose(middleware, devTools()) as GenericStoreEnhancer;
+if (__DEV__) {
+  if (
+    process.env.NODE_ENV === 'development'
+    && typeof window.__REDUX_DEVTOOLS_EXTENSION__ === 'function'
+  ) {
+    middleware = compose(middleware, window.__REDUX_DEVTOOLS_EXTENSION__());
   }
 }
 
-export default createStore<ReduxState>(reducers, middleware);
+export default createStore<i.ReduxState, i.Action, {}, {}>(reducers, middleware);

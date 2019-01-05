@@ -7,7 +7,7 @@ declare const __SERVER__: boolean;
 
 // extend window object
 interface Window {
-  devToolsExtension: Function;
+  __REDUX_DEVTOOLS_EXTENSION__: Function;
   stores: object;
 }
 
