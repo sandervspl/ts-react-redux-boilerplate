@@ -21,6 +21,7 @@
     "jsx-boolean-value": false,
     "consistent-return": 0,
     "indent": [true, "spaces"],
+    "ter-arrow-parens": [true, "always"],
     "ter-indent": [true, 2, { "SwitchCase": 1 }],
     "max-len": 120,
     "no-console": [true, "log", "error"],

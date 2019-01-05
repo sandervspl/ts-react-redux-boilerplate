@@ -1,8 +1,14 @@
-export { History } from 'history';
 import { RouteComponentProps as IRouteComponentProps } from 'react-router-dom';
+import { MapStateToProps as ReduxMapStateToProps } from 'react-redux';
+import { ReduxState } from 'ducks/types';
+
+export { History } from 'history';
 
 // Make generics optional
 export interface RouteComponentProps<P = any, C = any> extends IRouteComponentProps<P, C> {}
+
+// Add Redux state to type, component props optional
+export type MapStateToProps<P = {}> = ReduxMapStateToProps<any, P, ReduxState>;
 
 export * from 'services/types';
 
