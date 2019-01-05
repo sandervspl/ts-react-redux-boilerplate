@@ -1,35 +1,27 @@
 {
-  "defaultSeverity": "error",
   "extends": [
     "tslint-config-airbnb",
-    "tslint-react",
-    "tslint-config-prettier"
+    "tslint-react"
   ],
   "plugins": [
-    "react",
-    "typescript"
+    "react"
   ],
-  "env": {
-    "browser": true,
-    "node": true
-  },
   "rules": {
     "react/require-default-props": 0,
-    "react/forbid-prop-types": 0,
     "react/no-children-prop": 0,
     "react/jsx-indent": ["error", 2],
     "react/jsx-indent-props": ["error", 2],
     "react/jsx-filename-extension": 0,
-    "react/prop-types": 0,
     "jsx-alignment": true,
     "jsx-no-bind": true,
     "jsx-no-string-ref": true,
+    "jsx-no-multiline-js": false,
     "jsx-self-close": true,
     "jsx-wrap-multiline": true,
     "jsx-boolean-value": false,
     "consistent-return": 0,
     "indent": [true, "spaces"],
-    "ter-indent": [true, 2],
+    "ter-indent": [true, 2, { "SwitchCase": 1 }],
     "max-len": 120,
     "no-console": [true, "log", "error"],
     "no-nested-ternary": 0,
@@ -45,6 +37,53 @@
     "align": false,
     "import-name": false,
     "no-angle-bracket-type-assertion": true,
-    "trailing-comma": [true, {"multiline": "always", "singleline": "never"}]
+    "trailing-comma": [
+      true,
+      {
+        "multiline": {
+          "objects": "always",
+          "arrays": "always",
+          "functions": "never",
+          "typeLiterals": "ignore"
+        },
+        "singleline": "never",
+        "esSpecCompliant": true
+      }
+    ],
+    "member-ordering": [true, {
+      "order": [
+        "public-static-field",
+        "public-static-method",
+        "protected-static-field",
+        "protected-static-method",
+        "private-static-field",
+        "private-static-method",
+        "public-instance-field",
+        "protected-instance-field",
+        "private-instance-field",
+        "public-constructor",
+        "protected-constructor",
+        "private-constructor",
+        "public-instance-method",
+        "protected-instance-method",
+        "private-instance-method"
+      ]
+    }],
+    "quotemark": [true, "single", "avoid-escape", "jsx-double"],
+    "no-shadowed-variable": false,
+    "semicolon": [true, "always", "ignore-interfaces"],
+    "array-type": [true, "array"],
+    "whitespace": [true, 
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-module",
+      "check-separator",
+      "check-rest-spread",
+      "check-type",
+      "check-typecast",
+      "check-type-operator",
+      "check-preblock"
+    ]
   }
 }
