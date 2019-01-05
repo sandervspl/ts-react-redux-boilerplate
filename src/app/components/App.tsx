@@ -1,14 +1,18 @@
+import * as i from 'types';
 import * as React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { hot } from 'react-hot-loader';
+import { withRouter } from 'react-router';
+
 import { Test } from './modules';
 
-const App: React.StatelessComponent = () => (
-  <main>
+const App = () => (
+  <React.Suspense fallback={<div>Loading...</div>}>
     <Switch>
-      <Route path="/" component={Test}/>
+      <Route path="/lobby" component={Test} />
     </Switch>
-  </main>
+  </React.Suspense>
 );
 
-export default hot(module)(App);
+interface AppProps extends i.RouteComponentProps {}
+
+export default withRouter(App);

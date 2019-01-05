@@ -1,11 +1,5 @@
-import * as i from 'app/interfaces';
+import * as i from 'types';
 import * as React from 'react';
-
-export type PropChildrenText = string;
-export type PropChildrenNode = React.ReactChild | React.ReactChildren | React.ReactNode;
-export type PropChildrenAll = PropChildrenText | PropChildrenNode;
-
-export type ReactComponent = React.ComponentClass | React.StatelessComponent;
 
 export interface RequestOptions {
   path: string;
@@ -27,9 +21,4 @@ export interface ApiHelper {
   post: (options: GenerateOptions) => Promise<any>;
   put: (options: GenerateOptions) => Promise<any>;
   patch: (options: GenerateOptions) => Promise<any>;
-}
-
-export interface BaseStyled {
-  theme?: i.Theme;
-  className?: string;
 }
