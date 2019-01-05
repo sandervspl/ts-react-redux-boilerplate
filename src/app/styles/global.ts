@@ -1,6 +1,6 @@
 import styledNormalize from './normalize';
-import { injectGlobal } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
-export default () => injectGlobal`
+export default createGlobalStyle`
   ${styledNormalize}
 `;
