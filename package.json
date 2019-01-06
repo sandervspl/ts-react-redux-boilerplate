@@ -1,5 +1,5 @@
 {
-  "name": "ts-react-boilerplate",
+  "name": "ts-react-redux-boilerplate",
   "version": "3.0.0",
   "description": "A starter boilerplate to create comprehensive React apps with TypeScript, Redux, Styled-Components.",
   "author": "sandervispoel <contact@sandervispoel.com>",
@@ -24,10 +24,7 @@
     "boilerplate",
     "babel",
     "typescript",
-    "styled-components",
-    "server-side",
-    "server side",
-    "ssr"
+    "styled-components"
   ],
   "dependencies": {
     "compression": "^1.7.2",
