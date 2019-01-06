@@ -1,51 +1,47 @@
 import * as path from 'path';
+import * as webpack from 'webpack';
 import * as webpackMerge from 'webpack-merge';
+import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 
-const srcPath = (p: string) => path.resolve(__dirname, '..', 'src/', p);
-
-const baseConfig: any = {
-  mode: 'production',
-  devtool: 'cheap-source-map',
+const baseConfig: webpack.Configuration = {
   output: {
-    path: path.resolve(__dirname, '..', 'dist'),
+    filename: '[name].[hash].js',
+    chunkFilename: '[name].js',
+    path: path.join(__dirname, '../dist'),
     publicPath: '/',
-    filename: '[name].js',
   },
   optimization: {
     splitChunks: {
       cacheGroups: {
+        vendor: {
+          // sync + async chunks
+          chunks: 'all',
+          // import file path containing node_modules
+          test: /node_modules/,
+        },
         commons: {
           name: 'vendors',
           test: /node_modules/,
-          chunks: 'initial',
+          chunks: 'all',
         },
       },
       // Files will invalidate i. e. when more chunks with the same vendors are added.
       // medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
-      name: false,
+      // name: false,
     },
     // Keep the runtime chunk seperated to enable long term caching
     // https://twitter.com/wSokra/status/969679223278505985
-    runtimeChunk: true,
+    // runtimeChunk: true,
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        exclude: /node_modules/,
         use: [{
-          loader: 'babel-loader',
+          loader: 'ts-loader',
           options: {
-            babelrc: true,
-            plugins: ['react-hot-loader/babel'],
-          },
-        }, {
-          loader: 'awesome-typescript-loader',
-          options: {
-            compilerOptions: {
-              module: 'commonjs',
-              target: 'es2015',
-            },
+            transpileOnly: true,
           },
         }],
       },
@@ -53,15 +49,11 @@ const baseConfig: any = {
         test: /\.svg$/,
         oneOf: [
           {
-            resource: /external/,
-            loader: 'url-loader',
-            query: {
-              limit: 10000,
-              name: 'static/[name].[ext]',
-            },
+            resourceQuery: /external/,
+            loader: 'url-loader?limit=10000',
           },
           {
-            loader: ['babel-loader', { loader: 'svg-react-loader' }],
+            loader: '@svgr/webpack',
           },
         ],
       },
@@ -83,12 +75,6 @@ const baseConfig: any = {
         ],
       },
       {
-        test: /\.json$/,
-        loader: 'file-loader',
-        query: { name: '[name].json' },
-        type: 'javascript/auto',
-      },
-      {
         exclude: [
           /\.js$/,
           /\.tsx?$/,
@@ -105,24 +91,32 @@ const baseConfig: any = {
   },
   resolve: {
     extensions: ['*', '.js', '.ts', '.tsx'],
-    alias: {
-      app: srcPath('app'),
-      common: srcPath('app/components/common'),
-      components: srcPath('app/components'),
-      config: srcPath('config'),
-      ducks: srcPath('app/ducks'),
-      fonts: srcPath('app/static/fonts'),
-      images: srcPath('app/static/images'),
-      modules: srcPath('app/components/modules'),
-      server: srcPath('server'),
-      services: srcPath('app/services'),
-      styles: srcPath('app/styles'),
-      vectors: srcPath('app/static/vectors'),
-      'styled-components': srcPath('app/services/styled-components.ts'),
-    },
+    plugins: [
+      new TsconfigPathsPlugin(),
+    ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Peggy Pong',
+      filename: 'index.html',
+      inject: true,
+      template: path.join(__dirname, '../src/index.html'),
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true,
+      },
+    }),
+  ],
 };
 
 export default baseConfig;
 
-export const merge = (...config) => webpackMerge(baseConfig, ...config);
+export const merge = (...config: webpack.Configuration[]) => webpackMerge(baseConfig, ...config);

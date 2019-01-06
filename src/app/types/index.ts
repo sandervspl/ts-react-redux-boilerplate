@@ -4,11 +4,6 @@ import { ReduxState } from 'ducks/types';
 
 export { History } from 'history';
 
-// Make generics optional
-export interface RouteComponentProps<P = any, C = any> extends IRouteComponentProps<P, C> {}
-
-// Add Redux state to type, component props optional
-export type MapStateToProps<P = {}> = ReduxMapStateToProps<any, P, ReduxState>;
 
 export * from 'services/types';
 
@@ -17,3 +12,12 @@ export * from 'ducks/types';
 export * from 'ducks/test/types';
 
 export * from 'styles/types';
+
+// Make generics optional
+export interface RouteComponentProps<P = any, C = any> extends IRouteComponentProps<P, C> {}
+
+// Add Redux state to type, component props optional
+export type MapStateToProps<P = {}> = ReduxMapStateToProps<any, P, ReduxState>;
+
+export type AppType = 'client' | 'server';
+export type EnvType = 'development' | 'acceptation' | 'production';
