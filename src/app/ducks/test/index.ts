@@ -18,6 +18,7 @@ export default (state = initialState, action: i.Actions<typeof actions>): i.Test
         ...state,
         loading: true,
         error: false,
+        passed: false,
       };
 
     case SUCCESS:
@@ -25,7 +26,7 @@ export default (state = initialState, action: i.Actions<typeof actions>): i.Test
         ...state,
         loading: false,
         error: false,
-        passed: true,
+        passed: action.payload,
       };
 
     case FAILED:
@@ -33,6 +34,7 @@ export default (state = initialState, action: i.Actions<typeof actions>): i.Test
         ...state,
         loading: false,
         error: true,
+        passed: false,
       };
 
     default:
@@ -42,7 +44,7 @@ export default (state = initialState, action: i.Actions<typeof actions>): i.Test
 
 export const actions = {
   load: () => action(LOAD),
-  success: () => action(SUCCESS),
+  success: (passed: boolean) => action(SUCCESS, passed),
   failed: () => action(FAILED),
 };
 
@@ -51,7 +53,7 @@ export const install: i.InstallAction = () => {
     dispatch(actions.load());
 
     setTimeout(() => {
-      dispatch(actions.success());
+      dispatch(actions.success(true));
     }, 2000);
 
     return;
