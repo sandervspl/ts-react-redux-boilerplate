@@ -2,14 +2,13 @@ import * as React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import { GlobalStyles, theme } from '@styles';
+import { theme } from '@styles';
 import store from 'app/store';
 import App from './App';
 import 'app/static/favicon.ico';
 
 export default () => (
   <>
-    <GlobalStyles />
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
