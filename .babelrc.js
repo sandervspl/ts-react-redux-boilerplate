@@ -1,12 +1,13 @@
 module.exports = {
     presets: [
-        '@babel/env',
+        '@babel/preset-env',
         '@babel/typescript',
-        '@babel/react',
+        '@babel/preset-react',
     ],
     plugins: [
         'lodash',
         'babel-plugin-styled-components',
-        'react-loadable/babel',
+        '@babel/plugin-syntax-dynamic-import',
+        '@babel/plugin-proposal-class-properties',
     ],
 }

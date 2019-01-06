@@ -26,24 +26,16 @@ const baseConfig: webpack.Configuration = {
           chunks: 'all',
         },
       },
-      // Files will invalidate i. e. when more chunks with the same vendors are added.
-      // medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
-      // name: false,
     },
     // Keep the runtime chunk seperated to enable long term caching
     // https://twitter.com/wSokra/status/969679223278505985
-    // runtimeChunk: true,
+    runtimeChunk: true,
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: [{
-          loader: 'ts-loader',
-          options: {
-            transpileOnly: true,
-          },
-        }],
+        loader: 'babel-loader',
       },
       {
         test: /\.svg$/,
