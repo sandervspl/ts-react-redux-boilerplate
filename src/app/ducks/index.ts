@@ -1,10 +1,5 @@
-import * as i from 'app/interfaces';
-import * as test from './modules/test';
-
-export interface ReduxState {
-  test: i.TestStateMap;
-}
+import test from './test';
 
 export const appReducers = {
-  test: test.reducer,
+  test,
 };

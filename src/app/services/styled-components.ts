@@ -1,5 +1,5 @@
-import * as i from 'app/interfaces';
-import * as styledComponents from '../../../node_modules/styled-components';
+import * as i from 'types';
+import * as styledComponents from 'styled-components';
 
 const {
   ServerStyleSheet,
@@ -9,10 +9,10 @@ const {
 const {
   default: styled,
   css,
-  injectGlobal,
+  createGlobalStyle,
   keyframes,
   ThemeProvider,
 } = styledComponents as styledComponents.ThemedStyledComponentsModule<i.Theme>;
 
-export { css, injectGlobal, keyframes, ThemeProvider, ServerStyleSheet, StyleSheetManager };
+export { css, createGlobalStyle, keyframes, ThemeProvider, ServerStyleSheet, StyleSheetManager };
 export default styled;

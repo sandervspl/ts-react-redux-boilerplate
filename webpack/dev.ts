@@ -1,24 +1,21 @@
 import * as webpack from 'webpack';
 import * as path from 'path';
-import { CheckerPlugin } from 'awesome-typescript-loader';
-import globals from '../src/config/globals';
+import * as ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import { merge } from './base';
+import globals from './globals';
 
-const devConfig: any = merge({
+const devConfig: webpack.Configuration = merge({
   name: 'client',
   mode: 'development',
-  devtool: 'eval-source-map',
   entry: {
     app: [
       'webpack-hot-middleware/client?reload=true&noInfo=true',
-      path.resolve(__dirname, '..', 'src/index.tsx'),
+      '@babel/polyfill',
+      path.join(__dirname, '../src/index.tsx'),
     ],
   },
-  output: {
-    publicPath: path.resolve(__dirname, '..', '/dist/'),
-  },
   plugins: [
-    new CheckerPlugin(),
+    new ForkTsCheckerWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin(globals('client')),
   ],

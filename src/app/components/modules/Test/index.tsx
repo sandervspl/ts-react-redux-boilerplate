@@ -1,30 +1,33 @@
-import * as i from 'app/interfaces';
+import * as i from 'types';
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { install } from 'ducks/modules/test';
+import { install } from 'ducks/test';
 
 import { Button } from 'components/common';
-import { LogoIconWrapper, Section } from './styled';
 import { TestPassed } from './components';
+import { LogoIconWrapper, Section } from './components/styled';
 
-const Test: React.StatelessComponent<HomeProps> = (props: HomeProps) => (
+const Test: React.FC<HomeProps> = ({ test, ...props }) => (
   <Section>
     <LogoIconWrapper/>
-    {props.test.passed ? (
+    {test.passed ? (
       <TestPassed/>
     ) : (
-      <Button onClick={props.install}>{props.test.loading ? 'Installing ...' : 'Test installation'}</Button>
+      <Button onClick={props.install}>
+        {test.loading ? 'Installing ...' : 'Test installation'}
+      </Button>
     )}
   </Section>
 );
 
-const mapStateToProps = (store: i.ReduxState) => ({
-  test: store.test,
+const mapStateToProps: i.MapStateToProps = (state) => ({
+  test: state.test,
 });
 
-export interface HomeProps extends i.TestState {
-  install: i.Dispatcher;
+export interface HomeProps {
+  test: i.TestState;
+  install: i.InstallAction;
 }
 
 export default connect(mapStateToProps, { install })(Test);

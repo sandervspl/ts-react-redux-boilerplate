@@ -1,3 +1,5 @@
+import * as i from 'types';
+
 export interface Colors {
   black: string;
   white: string;
@@ -12,4 +14,9 @@ export interface Fonts {
 export interface Theme {
   color: Colors;
   font: Fonts;
+}
+
+export interface BaseStyled {
+  theme?: i.Theme;
+  className?: string;
 }

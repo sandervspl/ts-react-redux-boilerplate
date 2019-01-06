@@ -1,21 +1,24 @@
-import * as i from 'app/interfaces';
+import * as i from 'types';
+import { Dispatch } from 'redux';
+import { ThunkAction as IThunkAction } from 'redux-thunk';
+import { ActionType } from 'typesafe-actions';
 
-export type Dispatcher = () => (dispatch: i.Dispatch<i.ReduxState>) => void;
-
-export type ActionCreator = (payload?: any, meta?: any) => Action;
-
-export type Thunk = (dispatch: i.Dispatch<i.ReduxState>, getState: () => i.ReduxState, api: i.ApiHelper) => void;
-
-// initial state
-export interface ReducerState {
-  error?: boolean;
-  loading?: boolean;
+export interface ReduxState {
+  test: i.TestState;
 }
 
-// default action
-export interface Action {
+export interface Action<P = any> {
   type: string;
-  payload?: any;
-  error?: boolean;
-  meta?: any;
+  payload?: P;
+  error?: boolean,
+  meta?: any,
 }
+
+export type Actions<A> = ActionType<A>;
+
+// R = Return Type
+export type ThunkAction<R> = IThunkAction<R, i.ReduxState, i.ApiHelper, Action>;
+
+export type D = Dispatch<i.Action>;
+export type GS = () => i.ReduxState;
+export type A = i.ApiHelper;

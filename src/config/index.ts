@@ -1,10 +1,12 @@
-export const port = process.env.PORT || 3000;
+// import * as i from '@types';
 export const env = process.env.NODE_ENV || 'development';
 
-// Toggle Serverside rendering
-export const SSR = false;
-
-// HTML
-export const HTML = {
-  title: 'React Boilerplate',
+export const port = {
+  client: Number(process.env.PORT) || 3000,
+  server: 4000,
 };
+
+export const api = {
+  production: `http://localhost:${port.server}/`,
+  development: `http://localhost:${port.server}/`,
+}[env];

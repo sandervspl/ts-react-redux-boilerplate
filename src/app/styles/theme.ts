@@ -1,4 +1,4 @@
-import * as i from 'app/interfaces';
+import * as i from 'types';
 
 const theme: i.Theme = {
   color: {
