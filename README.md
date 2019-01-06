@@ -2,11 +2,11 @@
 
 ## Getting Started
 ```
-$ git clone https://github.com/sandervspl/ts-react-ssr-boilerplate
+$ git clone https://github.com/sandervspl/ts-react-redux-boilerplate
 ```
 
 ```
-$ cd ts-react-ssr-boilerplate && npm i
+$ cd ts-react-redux-boilerplate && npm i
 ```
 
 ```
