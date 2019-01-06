@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 import { install } from 'ducks/test';
 
 import { Button } from 'components/common';
-import { LogoIconWrapper, Section } from './styled';
 import { TestPassed } from './components';
+import { LogoIconWrapper, Section } from './components/styled';
 
 const Test: React.FC<HomeProps> = ({ test, ...props }) => (
   <Section>
