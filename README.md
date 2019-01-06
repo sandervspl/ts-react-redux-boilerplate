@@ -1,4 +1,4 @@
-# ts-react-ssr-boilerplate
+# ts-react-redux-boilerplate
 
 ## Getting Started
 ```
