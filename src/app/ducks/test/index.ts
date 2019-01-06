@@ -1,7 +1,5 @@
 import * as i from 'types';
-import { action, ActionType } from 'typesafe-actions';
-
-type TestActions = ActionType<typeof actions>;
+import { action } from 'typesafe-actions';
 
 const LOAD = 'user/load';
 const SUCCESS = 'user/success';
@@ -13,7 +11,7 @@ const initialState: i.TestState = {
   passed: false,
 };
 
-export default (state = initialState, action: TestActions): i.TestState => {
+export default (state = initialState, action: i.Actions<typeof actions>): i.TestState => {
   switch (action.type) {
     case LOAD:
       return {

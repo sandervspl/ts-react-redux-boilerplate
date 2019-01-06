@@ -4,7 +4,6 @@ import { ReduxState } from 'ducks/types';
 
 export { History } from 'history';
 
-
 export * from 'services/types';
 
 export * from 'app/ducks';

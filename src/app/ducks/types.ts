@@ -1,7 +1,7 @@
 import * as i from 'types';
-export * from './test/types';
 import { Dispatch } from 'redux';
 import { ThunkAction as IThunkAction } from 'redux-thunk';
+import { ActionType } from 'typesafe-actions';
 
 export interface ReduxState {
   test: i.TestState;
@@ -13,6 +13,8 @@ export interface Action<P = any> {
   error?: boolean,
   meta?: any,
 }
+
+export type Actions<A> = ActionType<A>;
 
 // R = Return Type
 export type ThunkAction<R> = IThunkAction<R, i.ReduxState, i.ApiHelper, Action>;
