@@ -3,19 +3,19 @@ import * as qs from 'qs';
 import { api as apiUrl } from '@config';
 
 class Api implements i.ApiHelper {
-  public get = <T = any>({ path, query, withAuth }: i.GenerateOptions): Promise<T> =>
+  public get = ({ path, query, withAuth }: i.GenerateOptions) =>
   this.request(this.generateOptions({ method: 'GET', path, query, withAuth }))
 
   public del = ({ path, query, withAuth }: i.GenerateOptions) =>
     this.request(this.generateOptions({ method: 'DELETE', path, query, withAuth }))
 
-  public post = <T = any>({ path, body, withAuth }: i.GenerateOptions): Promise<T> =>
+  public post = ({ path, body, withAuth }: i.GenerateOptions) =>
     this.request(this.generateOptions({ method: 'POST', path, body, withAuth }))
 
-  public put = <T = any>({ path, body, withAuth }: i.GenerateOptions): Promise<T> =>
+  public put = ({ path, body, withAuth }: i.GenerateOptions) =>
     this.request(this.generateOptions({ method: 'PUT', path, body, withAuth }))
 
-  public patch = <T = any>({ path, body, withAuth }: i.GenerateOptions): Promise<T> =>
+  public patch = ({ path, body, withAuth }: i.GenerateOptions) =>
     this.request(this.generateOptions({ method: 'PATCH', path, body, withAuth }))
 
   private request = async ({ path, options, handle401 }: i.RequestOptions): Promise<any> => {

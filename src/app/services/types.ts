@@ -15,10 +15,12 @@ export interface GenerateOptions {
   withAuth?: boolean;
 }
 
+type FetchCall = <T = any>(options: GenerateOptions) => Promise<T>;
+
 export interface ApiHelper {
-  get: (options: GenerateOptions) => Promise<any>;
-  del: (options: GenerateOptions) => Promise<any>;
-  post: (options: GenerateOptions) => Promise<any>;
-  put: (options: GenerateOptions) => Promise<any>;
-  patch: (options: GenerateOptions) => Promise<any>;
+  get: FetchCall;
+  del: FetchCall;
+  post: FetchCall;
+  put: FetchCall;
+  patch: FetchCall;
 }
