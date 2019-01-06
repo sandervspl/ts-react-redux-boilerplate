@@ -18,7 +18,7 @@ export default (state = initialState, action: TestActions): i.TestState => {
     case LOAD:
       return {
         ...state,
-        loading: false,
+        loading: true,
         error: false,
       };
 
