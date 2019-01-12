@@ -1,6 +1,6 @@
 import * as i from 'types';
 import * as qs from 'qs';
-import { api as apiUrl } from '@config';
+import { api as apiUrl } from 'config';
 
 class Api implements i.ApiHelper {
   public get = ({ path, query, withAuth }: i.GenerateOptions) =>

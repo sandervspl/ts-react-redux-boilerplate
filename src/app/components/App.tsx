@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { withRouter } from 'react-router';
-import { GlobalStyle } from '@styles';
+import { GlobalStyle } from 'styles';
 
 import { Test } from './modules';
 

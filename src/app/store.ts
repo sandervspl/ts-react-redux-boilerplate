@@ -1,7 +1,7 @@
 import * as i from 'types';
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import { api } from '@services';
+import { api } from 'services';
 import { appReducers } from './ducks';
 
 let middleware = applyMiddleware(thunk.withExtraArgument(api));
