@@ -12,9 +12,6 @@ const {
   StyleSheetManager,
 } = styledComponents as ThemedStyledComponentsModule<i.Theme>;
 
-// Export all types
-export * from '../../../node_modules/@types/styled-components';
-
 // Export functions
 export { css, createGlobalStyle, keyframes, ThemeProvider, ServerStyleSheet, StyleSheetManager };
 
