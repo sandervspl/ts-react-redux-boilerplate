@@ -1,4 +1,4 @@
-import styled from '@styled-components';
+import styled from 'styled-components';
 import LogoIcon from 'vectors/logo.svg';
 
 export const Section = styled.section`

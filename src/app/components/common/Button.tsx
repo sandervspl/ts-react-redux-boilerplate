@@ -1,6 +1,6 @@
 import * as i from 'types';
 import * as React from 'react';
-import styled from '@styled-components';
+import styled from 'styled-components';
 
 const Button = styled.button<ButtonProps>`
   background: ${(props) => props.theme.color.primary};

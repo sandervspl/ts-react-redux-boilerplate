@@ -1,10 +1,6 @@
 import * as i from 'types';
-import * as styledComponents from 'styled-components';
-
-const {
-  ServerStyleSheet,
-  StyleSheetManager,
-} = styledComponents;
+import { ThemedStyledComponentsModule } from '../../../node_modules/@types/styled-components';
+import * as styledComponents from '../../../node_modules/styled-components/dist/styled-components.browser.cjs';
 
 const {
   default: styled,
@@ -12,7 +8,15 @@ const {
   createGlobalStyle,
   keyframes,
   ThemeProvider,
-} = styledComponents as styledComponents.ThemedStyledComponentsModule<i.Theme>;
+  ServerStyleSheet,
+  StyleSheetManager,
+} = styledComponents as ThemedStyledComponentsModule<i.Theme>;
 
+// Export all types
+export * from '../../../node_modules/@types/styled-components';
+
+// Export functions
 export { css, createGlobalStyle, keyframes, ThemeProvider, ServerStyleSheet, StyleSheetManager };
+
+// Export styled object as default
 export default styled;

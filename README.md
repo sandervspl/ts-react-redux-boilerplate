@@ -72,10 +72,10 @@ This project uses CSS-in-JS with [Styled-Components](https://github.com/styled-c
 ### Global styles
 You can configure the styled-components theme in the `styles` folder. In this folder you can also specify all the variables. When styling a components, grab the `theme` from the styled-component's props.
 
-**Always import from '@styled-components'!** This is an augmented version of styled-components that has the theme interface attached to it.
+we use an augmented version of `styled-components` that adds the `Theme` interface to the styled object.
 
 ```ts
-import styled from '@styled-components';
+import styled from 'styled-components';
 
 const Button = styled.button`
     background-color: ${(props) => props.theme.color.white};
@@ -85,7 +85,7 @@ const Button = styled.button`
 You can also use custom props and its types
 
 ```ts
-import styled from '@styled-components';
+import styled from 'styled-components';
 
 const Button = styled.button<ButtonProps>`
     background-color: ${(props) => props.theme.color[props.color]};
