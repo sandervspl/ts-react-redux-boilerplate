@@ -21,7 +21,7 @@
       "images/*": ["app/static/images/*"],
       "modules/*": ["app/components/modules/*"],
       "modules": ["app/components/modules/index"],
-      "server/*": ["server/*"],
+      "server/*": ["server"],
       "services/*": ["app/services/*"],
       "services": ["app/services/index"],
       "styles/*": ["app/styles/*"],

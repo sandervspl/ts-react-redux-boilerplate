@@ -30,7 +30,7 @@ const serverConfig: webpack.Configuration = {
     __dirname: true,
   },
   entry: {
-    server: [path.resolve(__dirname, '../src/server/index.ts')],
+    server: [path.resolve(__dirname, '../src/server.ts')],
   },
   externals: [
     nodeExternals({ whitelist: /\.(?!js(\?|$))([^.]+(\?|$))/ }),
