@@ -1,6 +1,3 @@
-import * as i from 'types';
-import * as React from 'react';
-
 export interface RequestOptions {
   path: string;
   options: RequestInit;
