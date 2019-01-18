@@ -42,9 +42,9 @@ export default (state = initialState, action: i.Actions<typeof actions>): i.Test
   }
 };
 
-export const actions = {
+export const actions: i.TestActions = {
   load: () => action(LOAD),
-  success: (passed: boolean) => action(SUCCESS, passed),
+  success: (passed) => action(SUCCESS, passed),
   failed: () => action(FAILED),
 };
 
