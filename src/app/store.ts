@@ -7,13 +7,8 @@ import { appReducers } from './ducks';
 let middleware = applyMiddleware(thunk.withExtraArgument(api));
 const reducers = combineReducers<i.ReduxState>(appReducers);
 
-if (__DEV__) {
-  if (
-    process.env.NODE_ENV === 'development'
-    && typeof window.__REDUX_DEVTOOLS_EXTENSION__ === 'function'
-  ) {
-    middleware = compose(middleware, window.__REDUX_DEVTOOLS_EXTENSION__());
-  }
+if (__DEV__ && typeof window.__REDUX_DEVTOOLS_EXTENSION__ === 'function') {
+  middleware = compose(middleware, window.__REDUX_DEVTOOLS_EXTENSION__());
 }
 
 export default createStore<i.ReduxState, i.Action, {}, {}>(reducers, middleware);
