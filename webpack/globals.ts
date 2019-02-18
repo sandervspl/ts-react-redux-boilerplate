@@ -1,5 +1,5 @@
 import * as i from 'types';
-import { port } from '../src/config';
+import { port } from 'config';
 
 const env = process.env.NODE_ENV || 'development';
 
@@ -12,6 +12,4 @@ export default (type: i.AppType) => ({
   __TEST__: env === 'test',
   __PROD__: env === 'production',
   __ACC__: env === 'acceptation',
-  __CLIENT__: type === 'client',
-  __SERVER__: type === 'server',
 });
