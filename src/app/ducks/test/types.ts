@@ -6,10 +6,4 @@ export interface TestState {
   passed: boolean;
 }
 
-export type TestActions = {
-  load: () => i.Action,
-  success: (passed: boolean) => i.Action,
-  failed: () => i.Action,
-};
-
 export type InstallAction = () => i.ThunkAction<Promise<void>>;

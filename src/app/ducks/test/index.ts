@@ -11,7 +11,7 @@ const initialState: i.TestState = {
   passed: false,
 };
 
-export default (state = initialState, action: i.Actions<typeof actions>): i.TestState => {
+export default (state = initialState, action: i.Actions<typeof actions>) => {
   switch (action.type) {
     case LOAD:
       return {
@@ -42,9 +42,9 @@ export default (state = initialState, action: i.Actions<typeof actions>): i.Test
   }
 };
 
-export const actions: i.TestActions = {
+export const actions = {
   load: () => action(LOAD),
-  success: (passed) => action(SUCCESS, passed),
+  success: (passed: boolean) => action(SUCCESS, passed),
   failed: () => action(FAILED),
 };
 
