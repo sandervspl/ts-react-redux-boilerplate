@@ -89,7 +89,7 @@ const baseConfig: webpack.Configuration = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Peggy Pong',
+      title: 'TypeScript React Redux Boilerplate',
       filename: 'index.html',
       inject: true,
       template: path.join(__dirname, '../src/index.html'),

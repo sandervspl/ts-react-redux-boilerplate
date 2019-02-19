@@ -16,8 +16,7 @@ export interface Action<P = any> {
 
 export type Actions<A> = ActionType<A>;
 
-// R = Return Type
-export type ThunkAction<R> = IThunkAction<R, i.ReduxState, i.ApiHelper, Action>;
+export type ThunkAction<ReturnType> = IThunkAction<ReturnType, i.ReduxState, i.ApiHelper, Action>;
 
 export type D = Dispatch<i.Action>;
 export type GS = () => i.ReduxState;
