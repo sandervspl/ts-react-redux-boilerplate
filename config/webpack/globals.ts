@@ -1,5 +1,5 @@
 import * as i from 'types';
-import { port } from '../src/config';
+import { port } from '../index';
 
 const env = process.env.NODE_ENV || 'development';
 

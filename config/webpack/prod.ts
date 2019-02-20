@@ -11,7 +11,7 @@ const prodConfig: webpack.Configuration = merge({
   entry: {
     app: [
       '@babel/polyfill',
-      path.join(__dirname, '../src/index.tsx'),
+      path.resolve('src/index.tsx'),
     ],
   },
   output: {
@@ -30,7 +30,7 @@ const serverConfig: webpack.Configuration = {
     __dirname: true,
   },
   entry: {
-    server: [path.resolve(__dirname, '../src/server.ts')],
+    server: [path.resolve('src/server.ts')],
   },
   externals: [
     nodeExternals({ whitelist: /\.(?!js(\?|$))([^.]+(\?|$))/ }),

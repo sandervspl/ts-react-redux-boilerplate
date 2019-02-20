@@ -11,7 +11,7 @@ const devConfig: webpack.Configuration = merge({
     app: [
       'webpack-hot-middleware/client?reload=true&noInfo=true',
       '@babel/polyfill',
-      path.join(__dirname, '../src/index.tsx'),
+      path.resolve('src/index.tsx'),
     ],
   },
   plugins: [

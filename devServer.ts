@@ -3,8 +3,8 @@ const express = require('express');
 const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
-const { port } = require('./src/config');
-const config = require('./webpack/dev.ts');
+const { port } = require('./config');
+const config = require('./config/webpack/dev.ts');
 
 const app = express();
 const compiler = webpack(config);

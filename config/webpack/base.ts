@@ -8,7 +8,7 @@ const baseConfig: webpack.Configuration = {
   output: {
     filename: '[name].[hash].js',
     chunkFilename: '[name].js',
-    path: path.join(__dirname, '../dist'),
+    path: path.resolve('dist'),
     publicPath: '/',
   },
   optimization: {
@@ -92,7 +92,7 @@ const baseConfig: webpack.Configuration = {
       title: 'TypeScript React Redux Boilerplate',
       filename: 'index.html',
       inject: true,
-      template: path.join(__dirname, '../src/index.html'),
+      template: path.resolve('src/index.html'),
       minify: {
         removeComments: true,
         collapseWhitespace: true,

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { install } from 'ducks/test';
 
-import { Button } from 'components/common';
+import { Button } from 'common';
 import { TestPassed } from './components';
 import { LogoIconWrapper, Section } from './components/styled';
 
