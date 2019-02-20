@@ -14,8 +14,6 @@
       "common": ["src/app/components/common/index"],
       "common/*": ["src/app/components/common/*"],
       "components/*": ["src/app/components/*"],
-      "config": ["config/index"],
-      "config/*": ["config/*"],
       "ducks/*": ["src/app/ducks/*"],
       "images/*": ["src/app/static/images/*"],
       "modules": ["src/app/components/modules/index"],
