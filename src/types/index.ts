@@ -6,7 +6,6 @@ export { History } from 'history';
 
 export * from 'services/types';
 
-export * from 'app/ducks';
 export * from 'ducks/types';
 export * from 'ducks/test/types';
 
