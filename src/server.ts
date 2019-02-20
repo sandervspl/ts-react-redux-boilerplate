@@ -1,6 +1,6 @@
 import * as express from 'express';
 import * as path from 'path';
-import compress from 'compression';
+import * as compress from 'compression';
 import { port } from 'config';
 
 const app = express();
