@@ -1,6 +1,6 @@
 {
-  "short_name": "ts-react-ssr-app",
-  "name": "TS React SSR Sample",
+  "short_name": "ts-react-redux",
+  "name": "TS React Redux Boilerplate",
   "icons": [
     {
       "src": "favicon.ico",

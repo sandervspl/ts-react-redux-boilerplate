@@ -89,10 +89,9 @@ const baseConfig: webpack.Configuration = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'TypeScript React Redux Boilerplate',
       filename: 'index.html',
       inject: true,
-      template: path.resolve('src/index.html'),
+      template: path.resolve('public/index.html'),
       minify: {
         removeComments: true,
         collapseWhitespace: true,
