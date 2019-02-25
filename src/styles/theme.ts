@@ -1,6 +1,4 @@
-import * as i from 'types';
-
-const theme: i.Theme = {
+const theme = {
   color: {
     black: '#000000',
     white: '#ffffff',
