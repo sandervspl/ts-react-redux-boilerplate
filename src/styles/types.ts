@@ -1,22 +1,6 @@
-import * as i from 'types';
-
-export interface Colors {
-  black: string;
-  white: string;
-  primary: string;
-  text: string;
-}
-
-export interface Fonts {
-  futura: string;
-}
-
-export interface Theme {
-  color: Colors;
-  font: Fonts;
-}
+import theme from './theme';
 
 export interface BaseStyled {
-  theme?: i.Theme;
+  theme?: typeof theme;
   className?: string;
 }
