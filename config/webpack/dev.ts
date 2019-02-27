@@ -17,7 +17,7 @@ const devConfig: webpack.Configuration = merge({
   plugins: [
     new ForkTsCheckerWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.DefinePlugin(globals('client')),
+    new webpack.DefinePlugin(globals),
   ],
 });
 

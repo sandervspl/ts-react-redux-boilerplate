@@ -68,8 +68,7 @@ const baseConfig: webpack.Configuration = {
       },
       {
         exclude: [
-          /\.js$/,
-          /\.tsx?$/,
+          /\.[jt]sx?$/,
           /\.css$/,
           /\.svg$/,
           /\.(jpe?g|png|gif)$/i,

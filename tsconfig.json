@@ -26,7 +26,7 @@
       "styles/*": ["src/styles/*"],
       "types": ["src/types/index"],
       "vectors/*": ["src/static/vectors/*"],
-      "styled-components": ["src/services/styled-components.ts"]
+      "styled-components": ["src/services/styled-components"]
     },
     "typeRoots": ["node_modules/@types"],
     "lib": ["dom", "es6"]

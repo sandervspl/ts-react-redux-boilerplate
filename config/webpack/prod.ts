@@ -18,7 +18,7 @@ const prodConfig: webpack.Configuration = merge({
     publicPath: '/',
   },
   plugins: [
-    new webpack.DefinePlugin(globals('client')),
+    new webpack.DefinePlugin(globals),
   ],
 });
 
@@ -42,7 +42,7 @@ const serverConfig: webpack.Configuration = {
     ],
   },
   plugins: [
-    new webpack.DefinePlugin(globals('server')),
+    new webpack.DefinePlugin(globals),
   ],
 };
 
