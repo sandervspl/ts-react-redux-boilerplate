@@ -15,7 +15,7 @@ export * from 'styles/types';
 export interface RouteComponentProps<P = any, C = any> extends IRouteComponentProps<P, C> {}
 
 // Add Redux state to type, component props optional
-export type MapStateToProps<P = {}> = ReduxMapStateToProps<any, P, ReduxState>;
+export type MapStateToProps<P = any> = ReduxMapStateToProps<any, P, ReduxState>;
 
 export type AppType = 'client' | 'server';
 export type EnvType = 'development' | 'acceptation' | 'production';

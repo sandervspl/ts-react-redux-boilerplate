@@ -8,13 +8,6 @@ interface Window {
   __REDUX_DEVTOOLS_EXTENSION__: Function;
 }
 
-// extend NodeJS modules
-interface NodeModule {
-  hot: {
-    accept: (path: string, cb: Function) => any;
-  };
-}
-
 // files
 declare module '*.svg';
 declare module '*.png' {
