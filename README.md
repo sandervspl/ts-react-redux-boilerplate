@@ -2,6 +2,9 @@
 React / Redux boilerplate using TypeScript. See [ts-react-redux-boilerplate-ssr](https://github.com/sandervspl/ts-react-redux-boilerplate-ssr) if you need server-side rendering.
 
 ## Getting Started
+To quickly install the boilerplate you can run `npx create-sandervspl web-redux <folder name>`.
+
+Manually:
 ```
 $ git clone https://github.com/sandervspl/ts-react-redux-boilerplate
 ```
