@@ -57,13 +57,13 @@ For production I recommend to use [PM2](http://pm2.keymetrics.io/) to run the se
 This boilerplate uses TypeScript for more consistent and better code maintainability. TypeScript is a typed superset of JavaScript, which means variables can be assigned with data types. TypeScript will decrease bugs and improve documentation of the code.
 
 ### Components
-The components are separated in `Modules` and `Common`. Modules are bundled components which depend on each other. Common components are components that are self-contained and can be used through the entire app.
+The components are separated in `modules` and `common`. Modules are bundled components which depend on other components. Common components are components that are self-contained and can be used through the entire app.
 
 ### Ducks
-This boilerplate uses the [Ducks](https://github.com/erikras/ducks-modular-redux) pattern for Redux, that means that the actionTypes, actions and reducers are bundled together in an isolated module.
+This boilerplate uses the [Ducks](https://github.com/erikras/ducks-modular-redux) pattern for Redux, that means that the action types, actions and reducers are bundled together in an isolated module.
 
 ### Redux DevTools
-To use de Redux DevTools install the [Redux DevTools extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) from the chrome webstore.
+To use the Redux DevTools install the [Redux DevTools extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) from the chrome webstore.
 
 ## Styling
 ### Local styles
@@ -72,7 +72,7 @@ This project uses CSS-in-JS with [Styled-Components](https://github.com/styled-c
 ### Global styles
 You can configure the styled-components theme in the `styles` folder. In this folder you can also specify all the variables. When styling a components, grab the `theme` from the styled-component's props.
 
-we use an augmented version of `styled-components` that adds the `Theme` interface to the styled object.
+we use an augmented version of `styled-components` that adds the theme type to the styled object.
 
 ```ts
 import styled from 'styled-components';
