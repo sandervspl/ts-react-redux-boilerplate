@@ -1,4 +1,5 @@
 # ts-react-redux-boilerplate
+React / Redux boilerplate using TypeScript. See [ts-react-redux-boilerplate-ssr](https://github.com/sandervspl/ts-react-redux-boilerplate-ssr) if you need server-side rendering.
 
 ## Getting Started
 ```
