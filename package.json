@@ -12,8 +12,9 @@
     "dev": "NODE_ENV=development ts-node -r tsconfig-paths/register ./devServer.ts",
     "build": "NODE_ENV=production npm run clean && npm run build:js",
     "build:js": "webpack -p --hide-modules --config config/webpack/prod.ts",
-    "clean": "rimraf dist/",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "lint": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx src/",
+    "clean": "rimraf dist/"
   },
   "keywords": [
     "react",
