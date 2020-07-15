@@ -28,7 +28,7 @@
   ],
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
-    "lodash": "4.17.11",
+    "lodash": "4.17.19",
     "qs": "6.6.0",
     "react": "16.8.2",
     "react-dom": "16.8.2",
