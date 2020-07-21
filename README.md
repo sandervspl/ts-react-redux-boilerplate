@@ -1,3 +1,10 @@
+# ⚠️ I no longer maintain this project
+I actively maintain and update [react-prime](https://github.com/react-prime/react-prime), which is what this boilerplate was built upon.
+
+You can use the CLI tool [create-react-prime](https://github.com/react-prime/create-react-prime) to install this boilerplate
+
+`$ npx create-react-prime myReactProject`
+
 # ts-react-redux-boilerplate
 React / Redux boilerplate using TypeScript. See [ts-react-redux-boilerplate-ssr](https://github.com/sandervspl/ts-react-redux-boilerplate-ssr) if you need server-side rendering.
 
